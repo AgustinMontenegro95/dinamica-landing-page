@@ -1,16 +1,11 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:sigest_landing_page/constants/components.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/about_app.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/contact.dart';
-import 'package:sigest_landing_page/presentation/Home/blocks/cost_product.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/footer.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/presentation.dart';
-import 'package:sigest_landing_page/presentation/Home/blocks/product.dart';
 import 'package:sigest_landing_page/presentation/widgets/app_bar.dart';
-import 'package:sigest_landing_page/presentation/widgets/parallax_divider.dart';
 
 import 'package:sigest_landing_page/presentation/widgets/parallax_image.dart';
 

@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Sigest",
+      title: "Dinamica Pay",
       debugShowCheckedModeBanner: false,
       builder: (context, child) => ResponsiveWrapper.builder(
           ClampingScrollWrapper.builder(context, child!),
@@ -20,8 +20,10 @@ class MyApp extends StatelessWidget {
           defaultScale: true,
           breakpoints: [
             const ResponsiveBreakpoint.resize(450, name: MOBILE),
+            const ResponsiveBreakpoint.resize(600, name: "MOBILE_LARGE"),
             const ResponsiveBreakpoint.autoScale(800, name: TABLET),
             const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+            const ResponsiveBreakpoint.resize(1350, name: "DESKTOP_LARGE"),
             const ResponsiveBreakpoint.autoScale(2460, name: "4K"),
           ],
           background: Container(color: const Color(0xFFF5F5F5))),

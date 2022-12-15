@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sigest_landing_page/constants/components.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -9,10 +11,14 @@ class Contact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle titleContactTextStyle = const TextStyle(
+    TextStyle titleContactTextStyle = TextStyle(
       color: Colors.white,
-      fontSize: 20,
+      fontSize: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 15 : 20,
       letterSpacing: 2,
+    );
+    TextStyle subtitleContactTextStyle = TextStyle(
+      color: Colors.grey,
+      fontSize: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 13 : 18,
     );
 
     return Container(
@@ -28,6 +34,22 @@ class Contact extends StatelessWidget {
             : ResponsiveRowColumnType.ROW,
         rowCrossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          ResponsiveRowColumnItem(
+            rowFlex: 1,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.only(bottom: 15),
+                  child: Image.asset(
+                    "assets/images/contact.png",
+                    height: 300,
+                  ),
+                ),
+              ],
+            ),
+          ),
           ResponsiveRowColumnItem(
             rowFlex: 3,
             child: Padding(
@@ -63,25 +85,39 @@ class Contact extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.phone,
                             color: primary,
-                            size: 50,
+                            size: ResponsiveWrapper.of(context)
+                                    .isSmallerThan(TABLET)
+                                ? 40
+                                : 50,
                           ),
-                          SelectableText("LLamanos",
+                          SelectableText("Llamanos",
                               style: titleContactTextStyle),
-                          const SelectableText(
-                            "0810 555 4345",
-                            style: TextStyle(color: Colors.grey, fontSize: 18),
+                          TextButton(
+                            onPressed: () {
+                              kIsWeb
+                                  ? copyText("0810 555 4345", context)
+                                  : callMe(number: "0810 555 4345");
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.grey,
+                            ),
+                            child: Text("0810 555 4345",
+                                style: subtitleContactTextStyle),
                           ),
                         ],
                       ),
                       Column(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.mail,
                             color: primary,
-                            size: 50,
+                            size: ResponsiveWrapper.of(context)
+                                    .isSmallerThan(TABLET)
+                                ? 40
+                                : 50,
                           ),
                           SelectableText(
                             "Mandanos un mail",
@@ -118,27 +154,35 @@ class Contact extends StatelessWidget {
                                     .black; // Defer to the widget's default.
                               }),
                             ), */
-                            child: const Text("info@midinamica.com.ar"),
+                            child: Text("info@midinamica.com.ar",
+                                style: subtitleContactTextStyle),
                           ),
                         ],
                       ),
                       Column(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.location_on,
                             color: primary,
-                            size: 45,
+                            size: ResponsiveWrapper.of(context)
+                                    .isSmallerThan(TABLET)
+                                ? 40
+                                : 50,
                           ),
                           SelectableText(
                             "Nuestras sucursales",
                             style: titleContactTextStyle,
                             textAlign: TextAlign.center,
                           ),
-                          ElevatedButton(
-                              onPressed: () {
-                                branchOffice(context);
-                              },
-                              child: const Text("VER"))
+                          TextButton(
+                            onPressed: () {
+                              branchOffice(context);
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.grey,
+                            ),
+                            child: Text("VER", style: subtitleContactTextStyle),
+                          ),
                         ],
                       )
                     ],
@@ -147,25 +191,24 @@ class Contact extends StatelessWidget {
               ),
             ),
           ),
-          ResponsiveRowColumnItem(
-            rowFlex: 2,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: Image.asset(
-                    "assets/images/contact.png",
-                    height: 300,
-                  ),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
+  }
+
+  callMe({required String number}) async {
+    final Uri url = Uri(scheme: 'tel', path: number);
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  copyText(String copy, BuildContext context) {
+    Clipboard.setData(ClipboardData(text: copy));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: primary,
+        content: Text("Se copió al portapapeles el número de teléfono.",
+            style: TextStyle(color: Colors.white))));
   }
 
   branchOffice(BuildContext context) {
@@ -176,7 +219,7 @@ class Contact extends StatelessWidget {
         child: AlertDialog(
           title: Center(
             child: Image.asset(
-              "assets/images/sucursales.png",
+              "assets/images/branch-office.png",
               height: 50,
             ),
           ),

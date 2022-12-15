@@ -45,7 +45,6 @@ class _PresentationState extends State<Presentation> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      //height: MediaQuery.of(context).size.height *,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(4),
@@ -68,26 +67,36 @@ class _PresentationState extends State<Presentation> {
                 children: <Widget>[
                   Container(
                     padding: const EdgeInsets.only(bottom: 15),
-                    child: const Text(
-                      "¡Potenciá el uso de tu dinero!",
-                      style: TextStyle(
-                          fontSize: 40,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                    child: Center(
+                      child: Text(
+                        "¡Potenciá el uso de tu dinero!".toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontSize: 40,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.5),
+                      ),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "Con Dinamica manejás tu dinero como vos querés.\nDescubrí todo lo que podés hacer.",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.grey.shade800,
+                    child: Center(
+                      child: Text(
+                        "Con Dinamica manejás tu dinero como vos querés.\nDescubrí todo lo que podés hacer.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey.shade800,
+                        ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.only(
+                        top: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+                            ? 20
+                            : 50),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -98,12 +107,26 @@ class _PresentationState extends State<Presentation> {
                               launchUrlString(
                                   "https://play.google.com/store/apps/details?id=com.soludev.cosmere");
                             },
-                            child: const Image(
-                              image: AssetImage(
+                            child: Image(
+                              image: const AssetImage(
                                 'assets/images/available-buttons/google-play-red.png',
                               ),
                               //fit: BoxFit.cover,
-                              height: 70,
+                              //height: 70,
+                              width: ResponsiveWrapper.of(context)
+                                      .isSmallerThan(MOBILE)
+                                  ? 175
+                                  : ResponsiveWrapper.of(context)
+                                          .isSmallerThan("MOBILE_LARGE")
+                                      ? 190
+                                      : ResponsiveWrapper.of(context)
+                                              .isSmallerThan(TABLET)
+                                          ? 250
+                                          : ResponsiveWrapper.of(context)
+                                                  .isSmallerThan(
+                                                      "DESKTOP_LARGE")
+                                              ? 200
+                                              : 300,
                             ),
                           ),
                         ),
@@ -115,11 +138,25 @@ class _PresentationState extends State<Presentation> {
                               launchUrlString(
                                   "https://play.google.com/store/apps/details?id=com.soludev.cosmere");
                             },
-                            child: const Image(
-                              image: AssetImage(
+                            child: Image(
+                              image: const AssetImage(
                                   'assets/images/available-buttons/app-store-red.png'),
-                              //fit: BoxFit.cover,
-                              height: 70,
+                              // fit: BoxFit.cover,
+                              //height: 70,
+                              width: ResponsiveWrapper.of(context)
+                                      .isSmallerThan(MOBILE)
+                                  ? 175
+                                  : ResponsiveWrapper.of(context)
+                                          .isSmallerThan("MOBILE_LARGE")
+                                      ? 190
+                                      : ResponsiveWrapper.of(context)
+                                              .isSmallerThan(TABLET)
+                                          ? 250
+                                          : ResponsiveWrapper.of(context)
+                                                  .isSmallerThan(
+                                                      "DESKTOP_LARGE")
+                                              ? 200
+                                              : 300,
                             ),
                           ),
                         ),
