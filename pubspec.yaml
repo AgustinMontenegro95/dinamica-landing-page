@@ -1,0 +1,51 @@
+name: sigest_landing_page
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_bloc: ^8.1.1
+  responsive_framework: ^0.2.0
+  email_validator: ^2.1.17
+  http:
+  animated_text_kit: ^4.2.2
+  url_launcher: ^6.0.20
+  whatsapp_unilink: ^2.0.2
+  
+
+  video_player: ^2.2.18
+ 
+ 
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  build_runner: ^2.2.1
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/videos/
+    - assets/images/
+    - assets/images/parallax/
+    - assets/images/dinamica/
+    - assets/images/available-buttons/
+
+ 
