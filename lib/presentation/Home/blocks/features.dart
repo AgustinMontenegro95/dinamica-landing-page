@@ -34,18 +34,19 @@ class Features extends StatelessWidget {
                   rowFit: FlexFit.tight,
                   child: ItemRowColunm(
                     image: 'assets/images/inventario-icono.png',
-                    title: "La gestión del inventario",
+                    title:
+                        "Una cuenta para que manejes tu dinero como vos quieras",
                     bodyText:
-                        "Administre su inventario de principio a fin: reciba los productos que ordenó de su proveedor, realice un recuento de inventario para solucionar problemas de inventario y envíe solo los productos disponibles a sus clientes con una gestión de inventario precisa.",
+                        "Seguí todos tus movimientos: transferencias, pagos, recargas y más. Usá los filtros para que sea más fácil encontrar lo que necesitás. Creá tu cuenta sin costo de mantenimiento.",
                   )),
               ResponsiveRowColumnItem(
                   rowFlex: 1,
                   rowFit: FlexFit.tight,
                   child: ItemRowColunm(
                     image: 'assets/images/escaner-barra.png',
-                    title: "Escaneo de códigos",
+                    title: "¿Necesitás dinero? Lo acreditamos en tu cuenta",
                     bodyText:
-                        "Para un cumplimiento de pedidos simple y sin errores, Sigest confía en el escaneo de códigos de barras. Etiquete cada producto con su respectivo SKU y escanee los códigos de barras para evitar costosos errores.",
+                        "Pedí tu préstamo hasta \$150.000. 100% online. Lo devolvés hasta en 36 cuotas.",
                   )),
             ],
           ),
@@ -68,18 +69,18 @@ class Features extends StatelessWidget {
                   rowFit: FlexFit.tight,
                   child: ItemRowColunm(
                     image: 'assets/images/rentable.png',
-                    title: "Solución rentable",
+                    title: "Elegí pagar en cuotas y con promociones exclusivas",
                     bodyText:
-                        "Una solución más rentable para otros sistemas complicados. Sigest te ofrece las funcionalidades más relevantes para tu pyme.",
+                        "Descubrí financiaciones y promociones en comercios de todo el país.",
                   )),
               ResponsiveRowColumnItem(
                   rowFlex: 1,
                   rowFit: FlexFit.tight,
                   child: ItemRowColunm(
                     image: 'assets/images/multiplataforma.png',
-                    title: "Multiplataforma",
+                    title: "¿Tenés un negocio? Elegí cómo querés cobrar",
                     bodyText:
-                        "Sigest funciona para todas las plataformas existentes, desde la instalacion en moviles y escritorio hasta un facil acceso através de la web",
+                        "Te ofrecemos los medios de cobro presenciales y online que mejor se adaptan a tus necesidades.",
                   )),
             ],
           ),

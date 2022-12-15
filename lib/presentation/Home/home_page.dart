@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:sigest_landing_page/presentation/Home/blocks/about_app.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/contact.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/footer.dart';
 import 'package:sigest_landing_page/presentation/Home/blocks/presentation.dart';
@@ -9,16 +8,14 @@ import 'package:sigest_landing_page/presentation/widgets/app_bar.dart';
 
 import 'package:sigest_landing_page/presentation/widgets/parallax_image.dart';
 
-import 'blocks/features.dart';
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  MyHomePageState createState() => MyHomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class HomePageState extends State<HomePage> {
   double imgRateZero = 0;
   double imgRateOne = 10;
   double imgRateTwo = 0;
@@ -99,7 +96,7 @@ class MyHomePageState extends State<MyHomePage> {
                     ),
                   ), */
                 ),
-                const AboutApp(),
+                //const AboutApp(),
                 const Presentation(),
                 /* SizedBox(
                     height: !sizeRes.isLargerThan(MOBILE)
@@ -116,7 +113,7 @@ class MyHomePageState extends State<MyHomePage> {
                         image: 'assets/parallax/background2.jpg')),
                 const CostProduct(), */
                 const Contact(),
-                const Features(),
+                //const Features(),
                 const Footer(),
               ],
             ),

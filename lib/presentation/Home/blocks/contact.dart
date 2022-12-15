@@ -25,6 +25,10 @@ class Contact extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.black,
+        gradient: LinearGradient(colors: [
+          Colors.black,
+          Color.fromARGB(255, 19, 19, 19),
+        ]),
         //borderRadius: BorderRadius.circular(4),
       ),
       padding: blockPadding(context),

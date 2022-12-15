@@ -9,27 +9,38 @@ class AboutApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(80),
+        padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 84, 89, 94),
+        //height: 420,
+        decoration: BoxDecoration(
+          /* image: DecorationImage(
+              image: AssetImage("assets/images/background-grey.jpg"),
+              fit: BoxFit.fill), */
+          gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 221, 221, 221),
+            Color.fromARGB(255, 180, 180, 180)
+          ]),
+          //color: const Color.fromRGBO(237, 237, 237, 1),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              '¿Qué es Dinámica Pay?',
-              style:
-                  headlineTextStyle.copyWith(fontSize: 65, color: Colors.white),
-              textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.only(right: 100),
+              child: Text(
+                '¿Qué es Dinámica Pay?',
+                style: headlineTextStyle.copyWith(
+                    fontSize: 65, color: Colors.black),
+                textAlign: TextAlign.start,
+              ),
             ),
             const SizedBox(
               height: 50,
             ),
-            const Text(
+            Text(
               'El software de gestión de stock de Sigest es una solución basada en la nube diseñada para cubrir la gestión de inventario y el cumplimiento de pedidos de todos: minoristas en línea, comercio electrónico u operaciones industriales, entre otros. Sigest cubre cada detalle del proceso de cumplimiento de pedidos para una experiencia rápida y sin complicaciones. Desde el abastecimiento de productos hasta la gestión de inventario, la selección, el embalaje y el envío, lo tenemos cubierto.',
-              style: buttonTextStyle,
-              textAlign: TextAlign.center,
+              style: buttonTextStyle.copyWith(color: Colors.black),
+              textAlign: TextAlign.justify,
             ),
             const SizedBox(
               height: 50,

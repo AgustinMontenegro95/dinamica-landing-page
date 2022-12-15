@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
 
 const Color primary = Color.fromRGBO(234, 33, 46, 1);
-//const Color primary = Color(0xFF1389FD);
+//const Color primary = Color.fromRGBO(254, 0, 0, 1);
 const Color primaryDark = Color(0xFF0276e8);
 const Color primaryLight = Color.fromARGB(255, 247, 248, 248);
 
