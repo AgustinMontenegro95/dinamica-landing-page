@@ -55,7 +55,12 @@ class Contact extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 15),
                   child: Image.asset(
                     "assets/images/contact.png",
-                    height: 300,
+                    height: ResponsiveWrapper.of(context).isSmallerThan(MOBILE)
+                        ? 200
+                        : ResponsiveWrapper.of(context)
+                                .isSmallerThan("MOBILE_LARGE")
+                            ? 250
+                            : 300,
                   ),
                 ),
               ],
@@ -71,13 +76,20 @@ class Contact extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     padding: const EdgeInsets.only(bottom: 15),
-                    child: const Text(
+                    child: Text(
                       "Te ayudamos de la manera que prefieras",
                       style: TextStyle(
                           letterSpacing: 2,
-                          fontSize: 40,
+                          fontSize: ResponsiveWrapper.of(context)
+                                  .isSmallerThan(MOBILE)
+                              ? 30
+                              : ResponsiveWrapper.of(context)
+                                      .isSmallerThan("MOBILE_LARGE")
+                                  ? 35
+                                  : 40,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                   Container(

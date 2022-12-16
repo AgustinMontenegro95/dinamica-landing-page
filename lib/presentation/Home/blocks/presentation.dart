@@ -97,7 +97,7 @@ class _PresentationState extends State<Presentation> {
                     padding: EdgeInsets.only(
                         top: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
                             ? 20
-                            : 50),
+                            : 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -164,6 +164,21 @@ class _PresentationState extends State<Presentation> {
                       ],
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20, bottom: 20),
+                    child: Center(
+                      child: Text(
+                        "O podés escanear el siguiente QR",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey.shade800,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Center(
+                      child: Image.asset("assets/images/qr-download-small.png"))
                 ],
               ),
             ),
