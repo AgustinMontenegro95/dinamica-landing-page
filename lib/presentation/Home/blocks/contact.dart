@@ -1,8 +1,8 @@
+import 'package:dinamica_landing_page/constants/components.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:sigest_landing_page/constants/components.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -156,23 +156,6 @@ class Contact extends StatelessWidget {
                               style: TextButton.styleFrom(
                                 foregroundColor: Colors.grey,
                               ),
-                              /* style: ButtonStyle(
-                              overlayColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                if (states.contains(MaterialState.focused)) {
-                                  return Colors.red;
-                                }
-                                if (states.contains(MaterialState.hovered)) {
-                                  return Colors.transparent;
-                                }
-                                if (states.contains(MaterialState.pressed)) {
-                                  return Colors.red;
-                                }
-                                return Colors
-                                    .black; // Defer to the widget's default.
-                              }),
-                            ), */
                               child: Text("info@midinamica.com.ar",
                                   style: subtitleContactTextStyle),
                             ),

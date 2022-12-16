@@ -1,12 +1,12 @@
+import 'package:dinamica_landing_page/presentation/Home/blocks/contact.dart';
+import 'package:dinamica_landing_page/presentation/Home/blocks/footer.dart';
+import 'package:dinamica_landing_page/presentation/Home/blocks/presentation.dart';
+import 'package:dinamica_landing_page/presentation/widgets/app_bar.dart';
+import 'package:dinamica_landing_page/presentation/widgets/parallax_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:sigest_landing_page/presentation/Home/blocks/contact.dart';
-import 'package:sigest_landing_page/presentation/Home/blocks/footer.dart';
-import 'package:sigest_landing_page/presentation/Home/blocks/presentation.dart';
-import 'package:sigest_landing_page/presentation/widgets/app_bar.dart';
-
-import 'package:sigest_landing_page/presentation/widgets/parallax_image.dart';
+import 'package:scroll_pos/scroll_pos.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,15 +17,12 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   double imgRateZero = 0;
-  double imgRateOne = 10;
-  double imgRateTwo = 0;
-  double imgRateThree = 0;
-  double imgRateFour = 10;
-  late ScrollController scrollController;
+  late ScrollPosController scrollController;
+  static const itemCount = 4;
 
   @override
   void initState() {
-    scrollController = ScrollController();
+    scrollController = ScrollPosController(itemCount: itemCount);
     super.initState();
   }
 
@@ -39,85 +36,43 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final sizeRes = ResponsiveWrapper.of(context);
 
+    List<Widget> listWidgets = [
+      Container(
+        height: !sizeRes.isLargerThan(MOBILE)
+            ? sizeRes.scaledHeight * 0.40
+            : sizeRes.scaledHeight * 0.94,
+        color: Colors.transparent,
+      ),
+      const Presentation(),
+      const Contact(),
+      const Footer(),
+    ];
+
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBarCustom(scrollController: scrollController),
-        body: NotificationListener(
-          onNotification: (sc) {
-            if (sc is ScrollUpdateNotification) {
-              setState(() {
-                imgRateFour -= sc.scrollDelta! / 3;
-                imgRateThree -= sc.scrollDelta! / 3.5;
-                imgRateTwo -= sc.scrollDelta! / 4.5;
-                imgRateOne -= sc.scrollDelta! / 4;
-                imgRateZero -= sc.scrollDelta! / 5;
-              });
-            }
-            return true;
-          },
-          child: Stack(children: <Widget>[
+      extendBodyBehindAppBar: true,
+      appBar: AppBarCustom(scrollController: scrollController),
+      body: NotificationListener(
+        onNotification: (sc) {
+          if (sc is ScrollUpdateNotification) {
+            setState(() {
+              imgRateZero -= sc.scrollDelta! / 5;
+            });
+          }
+          return true;
+        },
+        child: Stack(
+          children: <Widget>[
             ParallaxWidget(top: imgRateZero, asset: "parallax"),
-            ListView(
+            ListView.builder(
               controller: scrollController,
-              children: [
-                Container(
-                  height: !sizeRes.isLargerThan(MOBILE)
-                      ? sizeRes.scaledHeight * 0.40
-                      : sizeRes.scaledHeight * 0.94,
-                  color: Colors.transparent,
-                  /* child: Center(
-                    child: SizedBox(
-                      width: 250.0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          DefaultTextStyle(
-                            style: animationtextStyle,
-                            child: AnimatedTextKit(
-                              repeatForever: true,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                    'Gestiona todos tus productos',
-                                    textAlign: TextAlign.center),
-                                TypewriterAnimatedText('Actualiza tu negocio',
-                                    textAlign: TextAlign.center),
-                                TypewriterAnimatedText('Maximiza la eficiencia',
-                                    textAlign: TextAlign.center),
-                                TypewriterAnimatedText('Minimiza tus gastos',
-                                    textAlign: TextAlign.center),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ), */
-                ),
-                //const AboutApp(),
-                const Presentation(),
-                /* SizedBox(
-                    height: !sizeRes.isLargerThan(MOBILE)
-                        ? sizeRes.screenHeight * 0.15
-                        : 300,
-                    child: LocationListItem(
-                        image: 'assets/parallax/background1.jpg')),
-                const Product(),
-                SizedBox(
-                    height: !sizeRes.isLargerThan(MOBILE)
-                        ? sizeRes.screenHeight * 0.17
-                        : 400,
-                    child: LocationListItem(
-                        image: 'assets/parallax/background2.jpg')),
-                const CostProduct(), */
-                const Contact(),
-                //const Features(),
-                const Footer(),
-              ],
+              itemCount: itemCount,
+              itemBuilder: (context, index) {
+                return listWidgets[index];
+              },
             ),
-          ]),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }

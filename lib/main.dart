@@ -1,7 +1,6 @@
+import 'package:dinamica_landing_page/presentation/Home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:sigest_landing_page/constants/colors.dart';
-import 'package:sigest_landing_page/presentation/Home/home_page.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {

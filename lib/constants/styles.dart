@@ -1,5 +1,5 @@
+import 'package:dinamica_landing_page/constants/components.dart';
 import 'package:flutter/material.dart';
-import 'package:sigest_landing_page/constants/colors.dart';
 
 final buttonStylePro = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(primary),

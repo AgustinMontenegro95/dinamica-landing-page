@@ -1,15 +1,15 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:scroll_pos/scroll_pos.dart';
 
 import '../../constants/components.dart';
 
 class AppBarCustom extends StatefulWidget implements PreferredSizeWidget {
   const AppBarCustom({Key? key, required this.scrollController})
       : super(key: key);
-  final ScrollController scrollController;
+  final ScrollPosController scrollController;
 
   @override
   State<AppBarCustom> createState() => _AppBarCustomState();
@@ -76,10 +76,9 @@ class _AppBarCustomState extends State<AppBarCustom> {
           visible: transitionColor < 1 ? false : true,
           child: TextButton(
               onPressed: () {
-                widget.scrollController.animateTo(
-                    MediaQuery.of(context).size.height * 0,
-                    duration: const Duration(seconds: 2),
-                    curve: Curves.ease);
+                setState(() {
+                  widget.scrollController.scrollToItem(0, animate: true);
+                });
               },
               child: Text(
                 'Inicio',
@@ -92,10 +91,10 @@ class _AppBarCustomState extends State<AppBarCustom> {
           visible: transitionColor < 1 ? false : true,
           child: TextButton(
               onPressed: () {
-                widget.scrollController.position.animateTo(
-                    widget.scrollController.position.maxScrollExtent * 0.75,
-                    duration: const Duration(seconds: 2),
-                    curve: Curves.ease);
+                setState(() {
+                  widget.scrollController
+                      .scrollToItem(2, center: true, animate: true);
+                });
               },
               child: Text(
                 'Contacto',
@@ -114,10 +113,10 @@ class _AppBarCustomState extends State<AppBarCustom> {
                 color: Colors.white),
             child: TextButton(
                 onPressed: () {
-                  widget.scrollController.position.animateTo(
-                      widget.scrollController.position.maxScrollExtent * 0.35,
-                      duration: const Duration(seconds: 2),
-                      curve: Curves.ease);
+                  setState(() {
+                    widget.scrollController
+                        .scrollToItem(1, center: true, animate: true);
+                  });
                 },
                 child: Text(
                   'Descargar APP',
