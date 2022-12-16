@@ -22,8 +22,26 @@ class ParallaxWidget extends StatelessWidget {
             ? sizeRes.scaledHeight * 0.50
             : sizeRes.scaledHeight,
         width: sizeRes.scaledWidth,
-        child:
-            Image.asset("assets/images/parallax/$asset.png", fit: BoxFit.cover),
+        child: sizeRes.isSmallerThan(MOBILE)
+            ? Image.asset("assets/images/parallax/parallax-mobile.png",
+                fit: BoxFit.cover)
+            : sizeRes.isSmallerThan("MOBILE_LARGE")
+                ? Image.asset(
+                    "assets/images/parallax/parallax-mobile-large.png",
+                    fit: BoxFit.cover)
+                : sizeRes.isSmallerThan(TABLET)
+                    ? Image.asset("assets/images/parallax/parallax-mobile.png",
+                        fit: BoxFit.cover)
+                    : sizeRes.isSmallerThan(DESKTOP)
+                        ? Image.asset(
+                            "assets/images/parallax/parallax-desktop.png",
+                            fit: BoxFit.cover)
+                        : sizeRes.isSmallerThan("DESKTOP_LARGE")
+                            ? Image.asset(
+                                "assets/images/parallax/parallax-desktop-large.png",
+                                fit: BoxFit.cover)
+                            : Image.asset("assets/images/parallax/$asset.png",
+                                fit: BoxFit.cover),
       ),
     );
   }

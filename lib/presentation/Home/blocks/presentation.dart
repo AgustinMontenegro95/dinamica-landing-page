@@ -56,6 +56,7 @@ class _PresentationState extends State<Presentation> {
             ? ResponsiveRowColumnType.COLUMN
             : ResponsiveRowColumnType.ROW,
         rowCrossAxisAlignment: CrossAxisAlignment.start,
+        columnSpacing: 30,
         children: [
           ResponsiveRowColumnItem(
             rowFlex: 2,
@@ -118,7 +119,7 @@ class _PresentationState extends State<Presentation> {
                                   ? 175
                                   : ResponsiveWrapper.of(context)
                                           .isSmallerThan("MOBILE_LARGE")
-                                      ? 190
+                                      ? 189
                                       : ResponsiveWrapper.of(context)
                                               .isSmallerThan(TABLET)
                                           ? 250
@@ -148,7 +149,7 @@ class _PresentationState extends State<Presentation> {
                                   ? 175
                                   : ResponsiveWrapper.of(context)
                                           .isSmallerThan("MOBILE_LARGE")
-                                      ? 190
+                                      ? 189
                                       : ResponsiveWrapper.of(context)
                                               .isSmallerThan(TABLET)
                                           ? 250

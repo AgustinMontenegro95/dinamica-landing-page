@@ -13,14 +13,21 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     TextStyle titleContactTextStyle = TextStyle(
       color: Colors.white,
-      fontSize: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 15 : 20,
+      fontSize: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+          ? 20
+          : ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+              ? 15
+              : 20,
       letterSpacing: 2,
     );
     TextStyle subtitleContactTextStyle = TextStyle(
       color: Colors.grey,
-      fontSize: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 13 : 18,
+      fontSize: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+          ? 18
+          : ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+              ? 13
+              : 18,
     );
-
     return Container(
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -36,7 +43,7 @@ class Contact extends StatelessWidget {
         layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
             ? ResponsiveRowColumnType.COLUMN
             : ResponsiveRowColumnType.ROW,
-        rowCrossAxisAlignment: CrossAxisAlignment.start,
+        rowCrossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ResponsiveRowColumnItem(
             rowFlex: 1,
@@ -60,7 +67,7 @@ class Contact extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(25, 32, 25, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
                     padding: const EdgeInsets.only(bottom: 15),
@@ -82,66 +89,74 @@ class Contact extends StatelessWidget {
                         color: Colors.grey.shade100,
                         fontStyle: FontStyle.italic,
                       ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  ResponsiveRowColumn(
+                    layout: ResponsiveWrapper.of(context)
+                            .isSmallerThan("MOBILE_LARGE")
+                        ? ResponsiveRowColumnType.COLUMN
+                        : ResponsiveRowColumnType.ROW,
+                    rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.phone,
-                            color: primary,
-                            size: ResponsiveWrapper.of(context)
-                                    .isSmallerThan(TABLET)
-                                ? 40
-                                : 50,
-                          ),
-                          SelectableText("Llamanos",
-                              style: titleContactTextStyle),
-                          TextButton(
-                            onPressed: () {
-                              kIsWeb
-                                  ? copyText("0810 555 4345", context)
-                                  : callMe(number: "0810 555 4345");
-                            },
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.grey,
+                      ResponsiveRowColumnItem(
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              color: primary,
+                              size: ResponsiveWrapper.of(context)
+                                      .isSmallerThan(TABLET)
+                                  ? 40
+                                  : 50,
                             ),
-                            child: Text("0810 555 4345",
-                                style: subtitleContactTextStyle),
-                          ),
-                        ],
+                            SelectableText("Llamanos",
+                                style: titleContactTextStyle),
+                            TextButton(
+                              onPressed: () {
+                                kIsWeb
+                                    ? copyText("0810 555 4345", context)
+                                    : callMe(number: "0810 555 4345");
+                              },
+                              style: TextButton.styleFrom(
+                                foregroundColor: Colors.grey,
+                              ),
+                              child: Text("0810 555 4345",
+                                  style: subtitleContactTextStyle),
+                            ),
+                          ],
+                        ),
                       ),
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.mail,
-                            color: primary,
-                            size: ResponsiveWrapper.of(context)
-                                    .isSmallerThan(TABLET)
-                                ? 40
-                                : 50,
-                          ),
-                          SelectableText(
-                            "Mandanos un mail",
-                            style: titleContactTextStyle,
-                          ),
-                          TextButton(
-                            onPressed: () async {
-                              final Uri uri =
-                                  Uri.parse('mailto:info@midinamica.com.ar?'
-                                      'subject=Consulta Dinamica Pay'
-                                      '&'
-                                      'body=Insertar consulta aqui.');
-                              if (!await launchUrl(uri)) {
-                                throw 'Could not launch $uri';
-                              }
-                            },
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.grey,
+                      ResponsiveRowColumnItem(
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.mail,
+                              color: primary,
+                              size: ResponsiveWrapper.of(context)
+                                      .isSmallerThan(TABLET)
+                                  ? 40
+                                  : 50,
                             ),
-                            /* style: ButtonStyle(
+                            SelectableText(
+                              "Mandanos un mail",
+                              style: titleContactTextStyle,
+                            ),
+                            TextButton(
+                              onPressed: () async {
+                                final Uri uri =
+                                    Uri.parse('mailto:info@midinamica.com.ar?'
+                                        'subject=Consulta Dinamica Pay'
+                                        '&'
+                                        'body=Insertar consulta aqui.');
+                                if (!await launchUrl(uri)) {
+                                  throw 'Could not launch $uri';
+                                }
+                              },
+                              style: TextButton.styleFrom(
+                                foregroundColor: Colors.grey,
+                              ),
+                              /* style: ButtonStyle(
                               overlayColor:
                                   MaterialStateProperty.resolveWith<Color>(
                                       (Set<MaterialState> states) {
@@ -158,12 +173,14 @@ class Contact extends StatelessWidget {
                                     .black; // Defer to the widget's default.
                               }),
                             ), */
-                            child: Text("info@midinamica.com.ar",
-                                style: subtitleContactTextStyle),
-                          ),
-                        ],
+                              child: Text("info@midinamica.com.ar",
+                                  style: subtitleContactTextStyle),
+                            ),
+                          ],
+                        ),
                       ),
-                      Column(
+                      ResponsiveRowColumnItem(
+                          child: Column(
                         children: [
                           Icon(
                             Icons.location_on,
@@ -188,9 +205,9 @@ class Contact extends StatelessWidget {
                             child: Text("VER", style: subtitleContactTextStyle),
                           ),
                         ],
-                      )
+                      )),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

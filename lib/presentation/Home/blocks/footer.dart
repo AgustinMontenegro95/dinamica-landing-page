@@ -14,7 +14,7 @@ class Footer extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: ResponsiveRowColumn(
-        layout: ResponsiveWrapper.of(context).isMobile
+        layout: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
             ? ResponsiveRowColumnType.COLUMN
             : ResponsiveRowColumnType.ROW,
         columnMainAxisSize: MainAxisSize.min,
@@ -31,66 +31,70 @@ class Footer extends StatelessWidget {
           ResponsiveRowColumnItem(
             rowFit: FlexFit.loose,
             columnFit: FlexFit.loose,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
-                    style: bodyTextStyle.copyWith(
-                        fontSize: 18, color: Colors.white, height: 2),
-                    children: [
-                      TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launchUrlString(
-                                  "https://goo.gl/maps/oKWpEDeqCkwfmr8a7");
-                            },
-                          text: "Ubicación"),
-                      const TextSpan(text: "  •  "),
-                      TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launchUrlString("http://www.midinamica.com.ar/");
-                            },
-                          text: "Sitio web"),
-                      const TextSpan(text: "  •  "),
-                      TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launchUrlString(
-                                  "https://www.instagram.com/dinamica.com.ar");
-                            },
-                          text: "Instagram"),
-                      const TextSpan(text: "  •  "),
-                      TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launchUrlString(
-                                  "https://www.facebook.com/tarjetadinamica");
-                            },
-                          text: "Facebook"),
-                    ],
-                  ),
-                ),
-                RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
+            child: Container(
+              padding: const EdgeInsets.only(top: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  RichText(
+                    textAlign: TextAlign.left,
+                    text: TextSpan(
                       style: bodyTextStyle.copyWith(
-                          fontSize: 14, color: Colors.white, height: 1),
+                          fontSize: 18, color: Colors.white, height: 2),
                       children: [
-                        const TextSpan(text: '\n'),
                         TextSpan(
-                            text:
-                                "Dinamica - Peatonal Tucumán 189, Santiago del Estero, Argentina - © Copyright 2023. Todos los derechos reservados.",
-                            style: bodyTextStyle.copyWith(
-                                fontSize: 15, color: Colors.white)),
-                        const TextSpan(text: '\n'),
-                        const TextSpan(text: '\n'),
-                        const TextSpan(text: '\n'),
-                      ]),
-                )
-              ],
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                launchUrlString(
+                                    "https://goo.gl/maps/oKWpEDeqCkwfmr8a7");
+                              },
+                            text: "Ubicación"),
+                        const TextSpan(text: "  •  "),
+                        TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                launchUrlString(
+                                    "http://www.midinamica.com.ar/");
+                              },
+                            text: "Sitio web"),
+                        const TextSpan(text: "  •  "),
+                        TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                launchUrlString(
+                                    "https://www.instagram.com/dinamica.com.ar");
+                              },
+                            text: "Instagram"),
+                        const TextSpan(text: "  •  "),
+                        TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                launchUrlString(
+                                    "https://www.facebook.com/tarjetadinamica");
+                              },
+                            text: "Facebook"),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    textAlign: TextAlign.left,
+                    text: TextSpan(
+                        style: bodyTextStyle.copyWith(
+                            fontSize: 14, color: Colors.white, height: 1),
+                        children: [
+                          const TextSpan(text: '\n'),
+                          TextSpan(
+                              text:
+                                  "Dinamica - Peatonal Tucumán 189, Santiago del Estero, Argentina - © Copyright 2023. Todos los derechos reservados.",
+                              style: bodyTextStyle.copyWith(
+                                  fontSize: 15, color: Colors.white)),
+                          const TextSpan(text: '\n'),
+                          const TextSpan(text: '\n'),
+                          const TextSpan(text: '\n'),
+                        ]),
+                  )
+                ],
+              ),
             ),
           )
         ],
