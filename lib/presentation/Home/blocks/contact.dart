@@ -309,7 +309,6 @@ class Contact extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           location == "" ? null : launchUrlString(location);
-          ;
         },
         child: ListTile(
           title: Text(title,

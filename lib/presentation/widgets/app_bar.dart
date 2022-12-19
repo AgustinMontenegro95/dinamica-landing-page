@@ -19,7 +19,7 @@ class AppBarCustom extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _AppBarCustomState extends State<AppBarCustom> {
-  static const double EMPTY_SPACE = 10.0;
+  static const double emptySpace = 10.0;
 
   bool isScrolledToTop = true;
   double offset = 0.0;
@@ -40,7 +40,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
         });
       }
     } else {
-      if (widget.scrollController.offset > EMPTY_SPACE && isScrolledToTop) {
+      if (widget.scrollController.offset > emptySpace && isScrolledToTop) {
         setState(() {
           isScrolledToTop = false;
         });
