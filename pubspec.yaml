@@ -18,6 +18,7 @@ dependencies:
   video_player: ^2.2.18
   url_strategy: ^0.2.0
   scroll_pos: ^0.3.0
+  flutter_native_splash: ^2.2.16
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +26,13 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
+#flutter_native_splash:
+#  color: "#EA212E"
+#  image: assets/images/dinamica/Dinamica.png
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/dinamica/dinamica-center-red.png
 
 flutter:
 

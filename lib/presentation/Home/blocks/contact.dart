@@ -1,5 +1,4 @@
 import 'package:dinamica_landing_page/constants/components.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -95,7 +94,7 @@ class Contact extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Text(
-                      "Recibí atención personalizada en nuestras sucursales, por teléfono, chat, redes sociales o en nuestro Centro de ayuda.",
+                      "Recibí atención personalizada en nuestras sucursales, por teléfono, chat, redes sociales o en nuestro centro de ayuda.",
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.grey.shade100,
@@ -126,14 +125,15 @@ class Contact extends StatelessWidget {
                                 style: titleContactTextStyle),
                             TextButton(
                               onPressed: () {
-                                kIsWeb
-                                    ? copyText("0810 555 4345", context)
-                                    : callMe(number: "0810 555 4345");
+                                ResponsiveWrapper.of(context)
+                                        .isLargerThan("MOBILE_LARGE")
+                                    ? copyText("0810 555 2403", context)
+                                    : callMe(number: "0810 555 2403");
                               },
                               style: TextButton.styleFrom(
                                 foregroundColor: Colors.grey,
                               ),
-                              child: Text("0810 555 4345",
+                              child: Text("0810 555 2403",
                                   style: subtitleContactTextStyle),
                             ),
                           ],
@@ -151,7 +151,7 @@ class Contact extends StatelessWidget {
                                   : 50,
                             ),
                             SelectableText(
-                              "Mandanos un mail",
+                              "Enviá un mail",
                               style: titleContactTextStyle,
                             ),
                             TextButton(
@@ -245,7 +245,7 @@ class Contact extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
-                  "Encontra tu Centro de Atención mas cercano",
+                  "Encontrá tu centro de atención más cercano",
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -253,27 +253,14 @@ class Contact extends StatelessWidget {
               branchOfficeListTile(
                   title: "Santiago del Estero",
                   subtitle: "Peatonal Tucumán Nº189",
-                  location: "https://goo.gl/maps/oKWpEDeqCkwfmr8a7"),
+                  location:
+                      "https://www.google.com.ar/maps/place/DIN%C3%81MICA/@-27.7849133,-64.2634483,17z/data=!3m1!4b1!4m5!3m4!1s0x943b521416793fbb:0xf44af0377609b0a!8m2!3d-27.7849181!4d-64.2612596"),
               const Divider(),
               branchOfficeListTile(
                   title: "La Banda",
-                  subtitle: "España Nº213",
-                  location: "https://goo.gl/maps/aJbznBm5DxEHGQRK9"),
-              const Divider(),
-              branchOfficeListTile(
-                  title: "Receptoría Frías",
-                  subtitle: "Carlos Monti Nº230",
-                  location: ""),
-              const Divider(),
-              branchOfficeListTile(
-                  title: "Receptoría Termas de Rio Hondo",
-                  subtitle: "Caseros Nº268",
-                  location: "https://goo.gl/maps/gwk8BXxQzXXudhjf7"),
-              const Divider(),
-              branchOfficeListTile(
-                  title: "Receptoría Añatuya",
-                  subtitle: "Aristóbulo del Valle casi Alvear",
-                  location: ""),
+                  subtitle: "Rivadavia Nº248",
+                  location:
+                      "https://www.google.com.ar/maps/place/DIN%C3%81MICA/@-27.7294497,-64.2414537,17z/data=!3m1!4b1!4m5!3m4!1s0x943b515f064542c7:0x13e8c872f48a6a6d!8m2!3d-27.7294601!4d-64.239275"),
               const Divider(),
             ],
           ),
@@ -288,7 +275,7 @@ class Contact extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   textStyle: const TextStyle(fontSize: 15)),
-              child: const Text("ACEPTAR"),
+              child: const Text("CERRAR"),
             ),
           ],
         ),
@@ -304,20 +291,14 @@ class Contact extends StatelessWidget {
         color: primary, fontWeight: FontWeight.bold, fontSize: 20);
     TextStyle addressBranchOficceTextStyle =
         TextStyle(color: Colors.grey.shade600, fontSize: 17);
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () {
-          location == "" ? null : launchUrlString(location);
-        },
-        child: ListTile(
-          title: Text(title,
-              style: locationBranchOficceTextStyle,
-              textAlign: TextAlign.center),
-          subtitle: Text(subtitle,
-              style: addressBranchOficceTextStyle, textAlign: TextAlign.center),
-        ),
-      ),
+    return ListTile(
+      onTap: () {
+        location == "" ? null : launchUrlString(location);
+      },
+      title: Text(title,
+          style: locationBranchOficceTextStyle, textAlign: TextAlign.center),
+      subtitle: Text(subtitle,
+          style: addressBranchOficceTextStyle, textAlign: TextAlign.center),
     );
   }
 }

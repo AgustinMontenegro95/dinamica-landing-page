@@ -84,7 +84,7 @@ class _PresentationState extends State<Presentation> {
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Center(
                       child: Text(
-                        "Con Dinamica manejás tu dinero como vos querés.\nDescubrí todo lo que podés hacer.",
+                        "Con DINÁMICA manejás tu dinero como vos querés.\nDescubrí todo lo que podés hacer.",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
