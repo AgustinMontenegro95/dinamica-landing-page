@@ -106,7 +106,7 @@ class _PresentationState extends State<Presentation> {
                           child: GestureDetector(
                             onTap: () {
                               launchUrlString(
-                                  "https://play.google.com/store/apps/details?id=com.soludev.cosmere");
+                                  "https://play.google.com/store/apps/details?id=com.dinamica.wallet");
                             },
                             child: Image(
                               image: const AssetImage(
@@ -137,7 +137,7 @@ class _PresentationState extends State<Presentation> {
                           child: GestureDetector(
                             onTap: () {
                               launchUrlString(
-                                  "https://play.google.com/store/apps/details?id=com.soludev.cosmere");
+                                  "https://apps.apple.com/us/app/dinamica/id1632974131");
                             },
                             child: Image(
                               image: const AssetImage(
@@ -191,18 +191,27 @@ class _PresentationState extends State<Presentation> {
                 if (snapshot.connectionState == ConnectionState.done) {
                   // If the VideoPlayerController has finished initialization, use
                   // the data it provides to limit the aspect ratio of the VideoPlayer.
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: AspectRatio(
-                      aspectRatio: videoController.value.aspectRatio,
-                      child:
-                          RepaintBoundary(child: VideoPlayer(videoController)),
+                  return Padding(
+                    padding:
+                        ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                            ? const EdgeInsets.only(top: 0)
+                            : ResponsiveWrapper.of(context)
+                                    .isSmallerThan("DESKTOP_LARGE")
+                                ? const EdgeInsets.only(top: 110)
+                                : const EdgeInsets.only(top: 70),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: AspectRatio(
+                        aspectRatio: videoController.value.aspectRatio,
+                        child: RepaintBoundary(
+                            child: VideoPlayer(videoController)),
+                      ),
                     ),
                   );
                 } else {
-                  // If the VideoPlayerController is still initializing, show a
-                  // loading spinner.
-                  return Container();
+                  // If the VideoPlayerController is still initializing, show a loading spinner.
+                  return const Center(
+                      child: CircularProgressIndicator(color: primary));
                 }
               },
             ),

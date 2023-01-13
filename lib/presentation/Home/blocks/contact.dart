@@ -121,7 +121,7 @@ class Contact extends StatelessWidget {
                                   ? 40
                                   : 50,
                             ),
-                            SelectableText("Llamanos",
+                            SelectableText("Llámanos",
                                 style: titleContactTextStyle),
                             TextButton(
                               onPressed: () {

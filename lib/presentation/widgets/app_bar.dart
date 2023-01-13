@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scroll_pos/scroll_pos.dart';
 
@@ -75,6 +74,10 @@ class _AppBarCustomState extends State<AppBarCustom> {
         Visibility(
           visible: transitionColor < 1 ? false : true,
           child: TextButton(
+              style: ButtonStyle(
+                splashFactory: NoSplash.splashFactory,
+                overlayColor: MaterialStateProperty.all(Colors.transparent),
+              ),
               onPressed: () {
                 setState(() {
                   widget.scrollController.scrollToItem(0, animate: true);
@@ -90,6 +93,10 @@ class _AppBarCustomState extends State<AppBarCustom> {
         Visibility(
           visible: transitionColor < 1 ? false : true,
           child: TextButton(
+              style: ButtonStyle(
+                splashFactory: NoSplash.splashFactory,
+                overlayColor: MaterialStateProperty.all(Colors.transparent),
+              ),
               onPressed: () {
                 setState(() {
                   widget.scrollController
@@ -105,13 +112,41 @@ class _AppBarCustomState extends State<AppBarCustom> {
         ),
         Visibility(
           visible: transitionColor < 1 ? false : true,
+          child: TextButton(
+              style: ButtonStyle(
+                splashFactory: NoSplash.splashFactory,
+                overlayColor: MaterialStateProperty.all(Colors.transparent),
+              ),
+              onPressed: () {
+                setState(() {
+                  Navigator.pushNamed(context, '/ayuda');
+                });
+              },
+              child: Text(
+                'Ayuda',
+                style: headlineTextStyle.copyWith(
+                    fontSize: fontSize, color: Colors.white),
+                textAlign: TextAlign.center,
+              )),
+        ),
+        Visibility(
+          visible: transitionColor < 1 ? false : true,
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
-            decoration: BoxDecoration(
+            /* decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 5),
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white),
+                color: Colors.white), */
             child: TextButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0))),
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  splashFactory: NoSplash.splashFactory,
+                  overlayColor:
+                      MaterialStateProperty.all(Colors.black.withOpacity(0.1)),
+                ),
                 onPressed: () {
                   setState(() {
                     widget.scrollController

@@ -1,4 +1,5 @@
-import 'package:dinamica_landing_page/presentation/Home/home_page.dart';
+import 'package:dinamica_landing_page/constants/components.dart';
+import 'package:dinamica_landing_page/routes/custom_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -13,12 +14,34 @@ void main() {
 
 class Dinamica extends StatelessWidget {
   const Dinamica({super.key});
+
+  MaterialColor getMaterialColor(Color color) {
+    final int red = color.red;
+    final int green = color.green;
+    final int blue = color.blue;
+
+    final Map<int, Color> shades = {
+      50: Color.fromRGBO(red, green, blue, .1),
+      100: Color.fromRGBO(red, green, blue, .2),
+      200: Color.fromRGBO(red, green, blue, .3),
+      300: Color.fromRGBO(red, green, blue, .4),
+      400: Color.fromRGBO(red, green, blue, .5),
+      500: Color.fromRGBO(red, green, blue, .6),
+      600: Color.fromRGBO(red, green, blue, .7),
+      700: Color.fromRGBO(red, green, blue, .8),
+      800: Color.fromRGBO(red, green, blue, .9),
+      900: Color.fromRGBO(red, green, blue, 1),
+    };
+
+    return MaterialColor(color.value, shades);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "DINÁMICA",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(primarySwatch: getMaterialColor(primary)),
       builder: (context, child) {
         FlutterNativeSplash.remove();
         return ResponsiveWrapper.builder(
@@ -36,7 +59,8 @@ class Dinamica extends StatelessWidget {
             ],
             background: Container(color: const Color(0xFFF5F5F5)));
       },
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: customRoutes,
     );
   }
 }

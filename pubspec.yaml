@@ -19,16 +19,14 @@ dependencies:
   url_strategy: ^0.2.0
   scroll_pos: ^0.3.0
   flutter_native_splash: ^2.2.16
+  flutter_custom_clippers: ^2.1.0
+  animate_do: ^3.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
-
-#flutter_native_splash:
-#  color: "#EA212E"
-#  image: assets/images/dinamica/Dinamica.png
 
 flutter_native_splash:
   color: "#ffffff"
