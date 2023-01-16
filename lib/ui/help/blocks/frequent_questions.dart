@@ -29,9 +29,10 @@ class FrequentQuestions extends StatelessWidget {
 
     return Theme(
       data: Theme.of(context).copyWith(
-        dividerColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-      ),
+          dividerColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent),
       child: FadeInLeft(
         child: Column(
           children: [

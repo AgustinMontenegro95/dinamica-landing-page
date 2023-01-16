@@ -21,6 +21,9 @@ dependencies:
   flutter_native_splash: ^2.2.16
   flutter_custom_clippers: ^2.1.0
   animate_do: ^3.0.2
+  email_validator: ^2.0.1
+  http: ^0.13.4
+  string_validator: ^0.3.0
 
 dev_dependencies:
   flutter_test:

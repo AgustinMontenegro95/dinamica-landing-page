@@ -98,10 +98,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
                 overlayColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                setState(() {
-                  widget.scrollController
-                      .scrollToItem(2, center: true, animate: true);
-                });
+                Navigator.pushNamed(context, '/contacto');
               },
               child: Text(
                 'Contacto',
@@ -118,9 +115,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
                 overlayColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                setState(() {
-                  Navigator.pushNamed(context, '/ayuda');
-                });
+                Navigator.pushNamed(context, '/ayuda');
               },
               child: Text(
                 'Ayuda',

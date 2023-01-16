@@ -73,10 +73,18 @@ class _PresentationState extends State<Presentation> {
                         "¡Potenciá el uso de tu dinero!".toUpperCase(),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
-                            fontSize: 40,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5),
+                          fontSize: 40,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(3.0, 3.0),
+                              blurRadius: 2.0,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -112,8 +120,6 @@ class _PresentationState extends State<Presentation> {
                               image: const AssetImage(
                                 'assets/images/available-buttons/google-play-red.png',
                               ),
-                              //fit: BoxFit.cover,
-                              //height: 70,
                               width: ResponsiveWrapper.of(context)
                                       .isSmallerThan(MOBILE)
                                   ? 175
@@ -142,8 +148,6 @@ class _PresentationState extends State<Presentation> {
                             child: Image(
                               image: const AssetImage(
                                   'assets/images/available-buttons/app-store-red.png'),
-                              // fit: BoxFit.cover,
-                              //height: 70,
                               width: ResponsiveWrapper.of(context)
                                       .isSmallerThan(MOBILE)
                                   ? 175
@@ -178,7 +182,11 @@ class _PresentationState extends State<Presentation> {
                     ),
                   ),
                   Center(
-                      child: Image.asset("assets/images/qr-download-small.png"))
+                      child: Image.asset("assets/images/qr-download-small.png",
+                          width: ResponsiveWrapper.of(context)
+                                  .isSmallerThan(MOBILE)
+                              ? 110
+                              : 140))
                 ],
               ),
             ),

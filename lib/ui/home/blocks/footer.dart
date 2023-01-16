@@ -24,7 +24,9 @@ class Footer extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(0, 20, 20, 20),
               child: Image.asset(
                   "assets/images/dinamica/dinamica-center-red.png",
-                  height: 100,
+                  height: ResponsiveWrapper.of(context).isSmallerThan(MOBILE)
+                      ? 70
+                      : 100,
                   fit: BoxFit.contain),
             ),
           ),

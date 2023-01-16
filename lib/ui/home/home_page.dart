@@ -1,9 +1,8 @@
-import 'package:dinamica_landing_page/presentation/Home/blocks/contact.dart';
-import 'package:dinamica_landing_page/presentation/Home/blocks/footer.dart';
-import 'package:dinamica_landing_page/presentation/Home/blocks/presentation.dart';
-import 'package:dinamica_landing_page/presentation/widgets/app_bar.dart';
-import 'package:dinamica_landing_page/presentation/widgets/parallax_image.dart';
 import 'package:flutter/material.dart';
+import 'package:dinamica_landing_page/ui/home/blocks/footer.dart';
+import 'package:dinamica_landing_page/ui/home/blocks/presentation.dart';
+import 'package:dinamica_landing_page/ui/widgets/app_bar.dart';
+import 'package:dinamica_landing_page/ui/widgets/parallax_image.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scroll_pos/scroll_pos.dart';
@@ -18,7 +17,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   double imgRateZero = 0;
   late ScrollPosController scrollController;
-  static const itemCount = 4;
+  static const itemCount = 3;
 
   @override
   void initState() {
@@ -44,7 +43,6 @@ class HomePageState extends State<HomePage> {
         color: Colors.transparent,
       ),
       const Presentation(),
-      const Contact(),
       const Footer(),
     ];
 
