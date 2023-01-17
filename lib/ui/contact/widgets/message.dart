@@ -1,6 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:dinamica_landing_page/constants/components.dart';
-import 'package:dinamica_landing_page/ui/contact/blocks/message_form.dart';
+import 'package:dinamica_landing_page/ui/contact/widgets/message_form.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class Message extends StatelessWidget {
@@ -8,13 +9,13 @@ class Message extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: blockPadding(context).copyWith(top: 0),
-      child: Align(
-        alignment: Alignment.center,
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 800),
+    return FadeInLeft(
+      child: Container(
+        width: double.infinity,
+        padding: blockPadding(context).copyWith(top: 0),
+        constraints: const BoxConstraints(maxWidth: 800),
+        child: Align(
+          alignment: Alignment.center,
           child: Column(
             children: [
               Icon(
@@ -25,7 +26,7 @@ class Message extends StatelessWidget {
                     : 50,
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 4),
+                padding: const EdgeInsets.only(bottom: 25),
                 child: Text("O bien, por mensaje directo",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -39,7 +40,7 @@ class Message extends StatelessWidget {
                       letterSpacing: 2,
                     )),
               ),
-              Padding(
+              /* Padding(
                 padding: const EdgeInsets.only(bottom: 25),
                 child: Text(
                   "Rellená el formulario de contacto y en breve nos contactaremos contigo.",
@@ -54,7 +55,7 @@ class Message extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-              ),
+              ), */
               const MessageForm(),
             ],
           ),

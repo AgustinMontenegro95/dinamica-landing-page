@@ -45,7 +45,7 @@ class Contact extends StatelessWidget {
           top: 20,
           bottom: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
               ? 20
-              : 50),
+              : 20),
       child: ResponsiveRowColumn(
         layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
             ? ResponsiveRowColumnType.COLUMN
@@ -55,14 +55,14 @@ class Contact extends StatelessWidget {
         children: [
           ResponsiveRowColumnItem(
             rowFlex: 3,
-            child: FadeInLeft(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(25, 32, 25, 0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(25, 32, 25, 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  ZoomIn(
+                    child: Container(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Text(
                         "Te ayudamos de la manera que prefieras".toUpperCase(),
@@ -100,7 +100,9 @@ class Contact extends StatelessWidget {
                                         : TextAlign.center,
                       ),
                     ),
-                    Container(
+                  ),
+                  FadeInRight(
+                    child: Container(
                       padding: const EdgeInsets.only(bottom: 30),
                       child: Text(
                         "Recibí atención personalizada en nuestras sucursales, redes sociales, por teléfono, por chat o en nuestro centro de ayuda.",
@@ -112,7 +114,9 @@ class Contact extends StatelessWidget {
                         textAlign: TextAlign.justify,
                       ),
                     ),
-                    ResponsiveRowColumn(
+                  ),
+                  FadeInLeft(
+                    child: ResponsiveRowColumn(
                       layout: ResponsiveWrapper.of(context)
                               .isSmallerThan("MOBILE_LARGE")
                           ? ResponsiveRowColumnType.COLUMN
@@ -220,41 +224,86 @@ class Contact extends StatelessWidget {
                         )),
                       ],
                     ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          /* ResponsiveRowColumnItem(
-            rowFlex: 1,
-            child: FadeInRight(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: Image.asset(
-                      "assets/images/contact.png",
-                      height:
-                          ResponsiveWrapper.of(context).isSmallerThan(MOBILE)
-                              ? 200
-                              : ResponsiveWrapper.of(context)
-                                      .isSmallerThan("MOBILE_LARGE")
-                                  ? 250
-                                  : ResponsiveWrapper.of(context)
+                  ),
+                  FadeInRight(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: ResponsiveRowColumn(
+                        layout: ResponsiveWrapper.of(context)
+                                .isSmallerThan("MOBILE_LARGE")
+                            ? ResponsiveRowColumnType.COLUMN
+                            : ResponsiveRowColumnType.ROW,
+                        rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        columnSpacing: 20,
+                        children: [
+                          ResponsiveRowColumnItem(
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/images/facebook.png',
+                                  width: ResponsiveWrapper.of(context)
                                           .isSmallerThan(TABLET)
-                                      ? 275
-                                      : ResponsiveWrapper.of(context)
-                                              .isSmallerThan(DESKTOP)
-                                          ? 275
-                                          : 300,
+                                      ? 30
+                                      : 40,
+                                  color: primary,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Text("Facebook",
+                                      style: titleContactTextStyle),
+                                ),
+                                TextButton(
+                                  onPressed: () => launchUrlString(
+                                      "https://www.facebook.com/tarjetadinamica"),
+                                  style: ButtonStyle(
+                                    splashFactory: NoSplash.splashFactory,
+                                    overlayColor: MaterialStateProperty.all(
+                                        Colors.black.withOpacity(0.0)),
+                                  ),
+                                  child: Text("/tarjetadinamica",
+                                      style: subtitleContactTextStyle),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ResponsiveRowColumnItem(
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/images/instagram.png',
+                                  width: ResponsiveWrapper.of(context)
+                                          .isSmallerThan(TABLET)
+                                      ? 30
+                                      : 40,
+                                  color: primary,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Text("Instagram",
+                                      style: titleContactTextStyle),
+                                ),
+                                TextButton(
+                                  onPressed: () => launchUrlString(
+                                      "https://www.instagram.com/dinamica.com.ar"),
+                                  style: ButtonStyle(
+                                    splashFactory: NoSplash.splashFactory,
+                                    overlayColor: MaterialStateProperty.all(
+                                        Colors.black.withOpacity(0.0)),
+                                  ),
+                                  child: Text("/dinamica.com.ar",
+                                      style: subtitleContactTextStyle),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-          ), */
+          ),
         ],
       ),
     );

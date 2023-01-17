@@ -56,100 +56,107 @@ class _MessageFormState extends State<MessageForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Wrap(
-        spacing: 20.0 * 2.5,
-        runSpacing: 20.0 * 1.5,
-        children: [
-          Theme(
-            data: Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
-            child: TextFormField(
-              controller: _nombreController,
-              focusNode: focusNombre,
-              onEditingComplete: () {
-                FocusScope.of(context).requestFocus(focusEmail);
-              },
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Debes ingresar tu nombre";
-                }
-                return null;
-              },
-              onChanged: (value) {},
-              decoration: const InputDecoration(
-                labelText: "Nombre",
-                border: OutlineInputBorder(),
+      child: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/dinamica/icon.png'),
+                opacity: 0.2)),
+        child: Wrap(
+          spacing: 20.0 * 2.5,
+          runSpacing: 20.0 * 1.5,
+          children: [
+            Theme(
+              data:
+                  Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
+              child: TextFormField(
+                controller: _nombreController,
+                focusNode: focusNombre,
+                onEditingComplete: () {
+                  FocusScope.of(context).requestFocus(focusEmail);
+                },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Debes ingresar tu nombre";
+                  }
+                  return null;
+                },
+                onChanged: (value) {},
+                decoration: const InputDecoration(
+                  labelText: "Nombre",
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          Theme(
-            data: Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
-            child: TextFormField(
-              controller: _emailController,
-              focusNode: focusEmail,
-              onEditingComplete: () {
-                FocusScope.of(context).requestFocus(focusTelefono);
-              },
-              onChanged: (value) {},
-              validator: (value) {
-                return value != null && !EmailValidator.validate(value)
-                    ? 'Debes ingresar un e-mail válido\n Ejemplo. xxxxx@yyyy.zzz'
-                    : null;
-              },
-              decoration: const InputDecoration(
-                labelText: "Correo electrónico",
-                border: OutlineInputBorder(),
+            Theme(
+              data:
+                  Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
+              child: TextFormField(
+                controller: _emailController,
+                focusNode: focusEmail,
+                onEditingComplete: () {
+                  FocusScope.of(context).requestFocus(focusTelefono);
+                },
+                onChanged: (value) {},
+                validator: (value) {
+                  return value != null && !EmailValidator.validate(value)
+                      ? 'Debes ingresar un e-mail válido\n Ejemplo. xxxxx@yyyy.zzz'
+                      : null;
+                },
+                decoration: const InputDecoration(
+                  labelText: "Correo electrónico",
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          Theme(
-            data: Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
-            child: TextFormField(
-              controller: _telefonoController,
-              focusNode: focusTelefono,
-              onEditingComplete: () {
-                FocusScope.of(context).requestFocus(focusDescripcion);
-              },
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Debes ingresar un número de teléfono";
-                } else if (!isNumeric(value)) {
-                  return "Debes ingresar un número de teléfono válido";
-                }
-                return null;
-              },
-              onChanged: (value) {},
-              decoration: const InputDecoration(
-                labelText: "Teléfono",
-                border: OutlineInputBorder(),
+            Theme(
+              data:
+                  Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
+              child: TextFormField(
+                controller: _telefonoController,
+                focusNode: focusTelefono,
+                onEditingComplete: () {
+                  FocusScope.of(context).requestFocus(focusDescripcion);
+                },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Debes ingresar un número de teléfono";
+                  } else if (!isNumeric(value)) {
+                    return "Debes ingresar un número de teléfono válido";
+                  }
+                  return null;
+                },
+                onChanged: (value) {},
+                decoration: const InputDecoration(
+                  labelText: "Teléfono",
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          Theme(
-            data: Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
-            child: TextFormField(
-              maxLines: 5,
-              controller: _descripcionController,
-              focusNode: focusDescripcion,
-              onEditingComplete: () {
-                FocusScope.of(context).requestFocus(FocusNode());
-              },
-              onChanged: (value) {},
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Debes ingresar tu mensaje";
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                labelText: "Mensaje",
-                alignLabelWithHint: true,
-                border: OutlineInputBorder(),
+            Theme(
+              data:
+                  Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
+              child: TextFormField(
+                maxLines: 5,
+                controller: _descripcionController,
+                focusNode: focusDescripcion,
+                onEditingComplete: () {
+                  FocusScope.of(context).requestFocus(FocusNode());
+                },
+                onChanged: (value) {},
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Debes ingresar tu mensaje";
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  labelText: "Mensaje",
+                  alignLabelWithHint: true,
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Center(
+            Center(
               child: TextButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
@@ -338,16 +345,16 @@ class _MessageFormState extends State<MessageForm> {
                           ? const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 30)
                           : const EdgeInsets.symmetric(
-                              vertical: 25, horizontal: 50)),
+                              vertical: 20, horizontal: 40)),
                 ),
                 child: Text(
-                  "Enviar consulta",
+                  "Enviar mensaje",
                   style: buttonTextStyle.copyWith(fontSize: 18),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -375,7 +382,6 @@ class _MessageFormState extends State<MessageForm> {
         }
       }),
     );
-    print(response.statusCode);
     return response;
   }
 }

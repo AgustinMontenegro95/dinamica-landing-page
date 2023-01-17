@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dinamica_landing_page/ui/home/blocks/footer.dart';
-import 'package:dinamica_landing_page/ui/home/blocks/presentation.dart';
+import 'package:dinamica_landing_page/ui/home/widgets/footer.dart';
+import 'package:dinamica_landing_page/ui/home/widgets/presentation.dart';
 import 'package:dinamica_landing_page/ui/widgets/app_bar.dart';
 import 'package:dinamica_landing_page/ui/widgets/parallax_image.dart';
 
