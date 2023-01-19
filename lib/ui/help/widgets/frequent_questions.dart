@@ -22,7 +22,7 @@ class FrequentQuestions extends StatelessWidget {
     //textAlign
     TextAlign textAlign = ResponsiveWrapper.of(context).isSmallerThan(TABLET)
         ? TextAlign.start
-        : TextAlign.justify;
+        : TextAlign.start;
 
     //widths
     double width = 0.85;

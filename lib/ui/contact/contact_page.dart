@@ -1,7 +1,7 @@
 import 'package:dinamica_landing_page/constants/components.dart';
 import 'package:dinamica_landing_page/ui/contact/widgets/contact.dart';
 import 'package:dinamica_landing_page/ui/contact/widgets/message.dart';
-import 'package:dinamica_landing_page/ui/contact/widgets/social_media.dart';
+import 'package:dinamica_landing_page/ui/widgets/my_drawer.dart';
 import 'package:dinamica_landing_page/ui/home/widgets/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -19,8 +19,10 @@ class _ContactPageState extends State<ContactPage> {
     double fontSize =
         ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE") ? 15 : 20;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
+      drawer: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+          ? const MyDrawer()
+          : null,
       appBar: AppBar(
         shadowColor: Colors.black,
         //scrolledUnderElevation: 0.0,
@@ -33,10 +35,18 @@ class _ContactPageState extends State<ContactPage> {
             height: 40,
           ),
         ),
-        automaticallyImplyLeading: false,
+        centerTitle: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+            ? true
+            : false,
+        automaticallyImplyLeading:
+            ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+                ? true
+                : false,
         actions: [
           Visibility(
-            visible: true,
+            visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+                ? false
+                : true,
             child: TextButton(
                 style: ButtonStyle(
                   splashFactory: NoSplash.splashFactory,
@@ -54,7 +64,9 @@ class _ContactPageState extends State<ContactPage> {
                 )),
           ),
           Visibility(
-            visible: true,
+            visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+                ? false
+                : true,
             child: TextButton(
                 style: ButtonStyle(
                   splashFactory: NoSplash.splashFactory,
@@ -76,7 +88,9 @@ class _ContactPageState extends State<ContactPage> {
                 )),
           ),
           Visibility(
-            visible: true,
+            visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+                ? false
+                : true,
             child: TextButton(
                 style: ButtonStyle(
                   splashFactory: NoSplash.splashFactory,
@@ -93,7 +107,9 @@ class _ContactPageState extends State<ContactPage> {
                 )),
           ),
           Visibility(
-            visible: true,
+            visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+                ? false
+                : true,
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
               child: TextButton(

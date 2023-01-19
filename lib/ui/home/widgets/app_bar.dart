@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scroll_pos/scroll_pos.dart';
 
-import '../../constants/components.dart';
+import '../../../constants/components.dart';
 
 class AppBarCustom extends StatefulWidget implements PreferredSizeWidget {
   const AppBarCustom({Key? key, required this.scrollController})
@@ -63,16 +63,26 @@ class _AppBarCustomState extends State<AppBarCustom> {
               ? primary.withOpacity(transitionColor)
               : primary,
       elevation: isScrolledToTop ? 0 : 10,
+      centerTitle: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+          ? true
+          : false,
       title: Visibility(
         visible: transitionColor < 1 ? false : true,
         child: Image.asset(
           'assets/images/dinamica/Dinamica.png',
-          height: 40,
+          height: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+              ? 40
+              : 40,
         ),
       ),
+      automaticallyImplyLeading: transitionColor < 1 ? false : true,
       actions: [
         Visibility(
-          visible: transitionColor < 1 ? false : true,
+          visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+              ? false
+              : transitionColor < 1
+                  ? false
+                  : true,
           child: TextButton(
               style: ButtonStyle(
                 splashFactory: NoSplash.splashFactory,
@@ -91,7 +101,11 @@ class _AppBarCustomState extends State<AppBarCustom> {
               )),
         ),
         Visibility(
-          visible: transitionColor < 1 ? false : true,
+          visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+              ? false
+              : transitionColor < 1
+                  ? false
+                  : true,
           child: TextButton(
               style: ButtonStyle(
                 splashFactory: NoSplash.splashFactory,
@@ -108,7 +122,11 @@ class _AppBarCustomState extends State<AppBarCustom> {
               )),
         ),
         Visibility(
-          visible: transitionColor < 1 ? false : true,
+          visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+              ? false
+              : transitionColor < 1
+                  ? false
+                  : true,
           child: TextButton(
               style: ButtonStyle(
                 splashFactory: NoSplash.splashFactory,
@@ -125,13 +143,13 @@ class _AppBarCustomState extends State<AppBarCustom> {
               )),
         ),
         Visibility(
-          visible: transitionColor < 1 ? false : true,
+          visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
+              ? false
+              : transitionColor < 1
+                  ? false
+                  : true,
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
-            /* decoration: BoxDecoration(
-                border: Border.all(color: Colors.white, width: 5),
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white), */
             child: TextButton(
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
