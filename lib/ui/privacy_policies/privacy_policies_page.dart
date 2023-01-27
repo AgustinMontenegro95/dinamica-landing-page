@@ -1,19 +1,13 @@
 import 'package:dinamica_landing_page/constants/components.dart';
-import 'package:dinamica_landing_page/ui/help/widgets/frequent_questions.dart';
-import 'package:dinamica_landing_page/ui/widgets/footer.dart';
+import 'package:dinamica_landing_page/ui/privacy_policies/widgets/body_pp.dart';
+import 'package:dinamica_landing_page/ui/privacy_policies/widgets/constant_data.dart';
 import 'package:dinamica_landing_page/ui/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:dinamica_landing_page/ui/help/widgets/help_center.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class HelpPage extends StatefulWidget {
-  const HelpPage({super.key});
+class PrivacyPolicies extends StatelessWidget {
+  const PrivacyPolicies({super.key});
 
-  @override
-  State<HelpPage> createState() => _HelpPageState();
-}
-
-class _HelpPageState extends State<HelpPage> {
   @override
   Widget build(BuildContext context) {
     double fontSize =
@@ -92,18 +86,11 @@ class _HelpPageState extends State<HelpPage> {
                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                 ),
                 onPressed: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Colors.grey, width: 2.0))),
-                  child: Text(
-                    'Ayuda',
-                    style: headlineTextStyle.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: fontSize,
-                        color: Colors.grey),
-                    textAlign: TextAlign.center,
-                  ),
+                child: Text(
+                  'Ayuda',
+                  style: headlineTextStyle.copyWith(
+                      fontSize: fontSize, color: Colors.white),
+                  textAlign: TextAlign.center,
                 )),
           ),
           Visibility(
@@ -139,17 +126,7 @@ class _HelpPageState extends State<HelpPage> {
         ],
       ),
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-            child: Column(
-          children: const [
-            HelpCenter(),
-            FrequentQuestions(),
-            SizedBox(height: 30),
-            Footer(),
-          ],
-        )),
-      ),
+      body: const BodyPP(),
     );
   }
 }

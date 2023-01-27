@@ -60,6 +60,14 @@ class Footer extends StatelessWidget {
                       TextSpan(
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
+                              Navigator.pushNamed(
+                                  context, '/politicas-privacidad');
+                            },
+                          text: "Políticas de privacidad"),
+                      const TextSpan(text: "  •  "),
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
                               launchUrlString(
                                   "https://www.instagram.com/dinamica.com.ar");
                             },

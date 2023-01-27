@@ -2,7 +2,7 @@ import 'package:dinamica_landing_page/constants/components.dart';
 import 'package:dinamica_landing_page/ui/contact/widgets/contact.dart';
 import 'package:dinamica_landing_page/ui/contact/widgets/message.dart';
 import 'package:dinamica_landing_page/ui/widgets/my_drawer.dart';
-import 'package:dinamica_landing_page/ui/home/widgets/footer.dart';
+import 'package:dinamica_landing_page/ui/widgets/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
