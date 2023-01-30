@@ -61,9 +61,9 @@ class Footer extends StatelessWidget {
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.pushNamed(
-                                  context, '/politicas-privacidad');
+                                  context, '/terminos-y-politicas');
                             },
-                          text: "Políticas de privacidad"),
+                          text: "Términos y políticas"),
                       const TextSpan(text: "  •  "),
                       TextSpan(
                           recognizer: TapGestureRecognizer()

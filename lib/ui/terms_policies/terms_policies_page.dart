@@ -1,11 +1,11 @@
 import 'package:dinamica_landing_page/constants/components.dart';
-import 'package:dinamica_landing_page/ui/privacy_policies/widgets/body_pp.dart';
+import 'package:dinamica_landing_page/ui/terms_policies/widgets/body_terms_policies.dart';
 import 'package:dinamica_landing_page/ui/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class PrivacyPoliciesPage extends StatelessWidget {
-  const PrivacyPoliciesPage({super.key});
+class TermsPoliciesPage extends StatelessWidget {
+  const TermsPoliciesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +125,7 @@ class PrivacyPoliciesPage extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.white,
-      body: const BodyPP(),
+      body: const BodyTermsPolicies(),
     );
   }
 }
