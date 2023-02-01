@@ -1,7 +1,9 @@
 import 'package:dinamica_landing_page/constants/colors.dart';
 import 'package:dinamica_landing_page/ui/privacy_policies/widgets/constant_data.dart';
 import 'package:dinamica_landing_page/ui/widgets/footer.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BodyPP extends StatelessWidget {
   const BodyPP({
@@ -82,8 +84,35 @@ class BodyPP extends StatelessWidget {
                   spaceColumn,
                   Text(informacionContactoTituloPP, style: titlePPTextStyle),
                   spaceTitleBody,
-                  Text(informacionContactoCuerpoPP,
-                      style: bodyPPTextStyle, textAlign: TextAlign.justify),
+                  Text.rich(
+                    textAlign: TextAlign.start,
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                            text: aInformacionContactoCuerpoPP,
+                            style: bodyPPTextStyle),
+                        TextSpan(
+                            text: bInformacionContactoCuerpoPP,
+                            style: const TextStyle(
+                                color: Colors.blue, fontSize: 18),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () async {
+                                final Uri uri =
+                                    Uri.parse('mailto:info@midinamica.com.ar?'
+                                        'subject=Consulta Dinamica Pay'
+                                        '&'
+                                        'body=Insertar consulta aqui.');
+                                if (!await launchUrl(uri)) {
+                                  throw 'Could not launch $uri';
+                                }
+                              }),
+                        const TextSpan(
+                            text: ".",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18)),
+                      ],
+                    ),
+                  ),
                   spaceColumn,
                   Text(ultimaActualizacionPP, style: bodyPPTextStyle),
                   spaceColumn,

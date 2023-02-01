@@ -192,36 +192,6 @@ class Contact extends StatelessWidget {
                             ],
                           ),
                         ),
-                        ResponsiveRowColumnItem(
-                            child: Column(
-                          children: [
-                            Icon(
-                              Icons.location_on,
-                              color: primary,
-                              size: ResponsiveWrapper.of(context)
-                                      .isSmallerThan(TABLET)
-                                  ? 40
-                                  : 50,
-                            ),
-                            Text(
-                              "Nuestras sucursales",
-                              style: titleContactTextStyle,
-                              textAlign: TextAlign.center,
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                branchOffice(context);
-                              },
-                              style: ButtonStyle(
-                                splashFactory: NoSplash.splashFactory,
-                                overlayColor: MaterialStateProperty.all(
-                                    Colors.black.withOpacity(0.0)),
-                              ),
-                              child:
-                                  Text("VER", style: subtitleContactTextStyle),
-                            ),
-                          ],
-                        )),
                       ],
                     ),
                   ),
@@ -234,9 +204,11 @@ class Contact extends StatelessWidget {
                             ? ResponsiveRowColumnType.COLUMN
                             : ResponsiveRowColumnType.ROW,
                         rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        rowCrossAxisAlignment: CrossAxisAlignment.start,
                         columnSpacing: 20,
                         children: [
                           ResponsiveRowColumnItem(
+                            columnOrder: 1,
                             child: Column(
                               children: [
                                 Image.asset(
@@ -267,6 +239,38 @@ class Contact extends StatelessWidget {
                             ),
                           ),
                           ResponsiveRowColumnItem(
+                              columnOrder: 0,
+                              child: Column(
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: primary,
+                                    size: ResponsiveWrapper.of(context)
+                                            .isSmallerThan(TABLET)
+                                        ? 40
+                                        : 50,
+                                  ),
+                                  Text(
+                                    "Nuestras sucursales",
+                                    style: titleContactTextStyle,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      branchOffice(context);
+                                    },
+                                    style: ButtonStyle(
+                                      splashFactory: NoSplash.splashFactory,
+                                      overlayColor: MaterialStateProperty.all(
+                                          Colors.black.withOpacity(0.0)),
+                                    ),
+                                    child: Text("VER",
+                                        style: subtitleContactTextStyle),
+                                  ),
+                                ],
+                              )),
+                          ResponsiveRowColumnItem(
+                            columnOrder: 2,
                             child: Column(
                               children: [
                                 Image.asset(
@@ -372,7 +376,7 @@ class Contact extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   textStyle: const TextStyle(fontSize: 15)),
-              child: const Text("CERRAR"),
+              child: const Text("Cerrar"),
             ),
           ],
         ),

@@ -13,7 +13,7 @@ class TextRichTAC extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
-      textAlign: TextAlign.start,
+      textAlign: TextAlign.justify,
       TextSpan(
         children: [
           TextSpan(

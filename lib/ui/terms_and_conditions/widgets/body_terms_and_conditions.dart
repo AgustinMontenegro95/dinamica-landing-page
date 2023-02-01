@@ -1,7 +1,7 @@
 import 'package:dinamica_landing_page/constants/colors.dart';
-import 'package:dinamica_landing_page/ui/help/terms_and_conditions/widgets/constant_data.dart';
-import 'package:dinamica_landing_page/ui/help/terms_and_conditions/widgets/link_text_rich_tac.dart';
-import 'package:dinamica_landing_page/ui/help/terms_and_conditions/widgets/text_rich_tac.dart';
+import 'package:dinamica_landing_page/ui/terms_and_conditions/widgets/constant_data.dart';
+import 'package:dinamica_landing_page/ui/terms_and_conditions/widgets/link_text_rich_tac.dart';
+import 'package:dinamica_landing_page/ui/terms_and_conditions/widgets/text_rich_tac.dart';
 import 'package:dinamica_landing_page/ui/widgets/footer.dart';
 import 'package:flutter/material.dart';
 

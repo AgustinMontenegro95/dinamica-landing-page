@@ -57,10 +57,13 @@ class _MessageFormState extends State<MessageForm> {
     return Form(
       key: _formKey,
       child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/dinamica/icon.png'),
-                opacity: 0.2)),
+          image: DecorationImage(
+            image: AssetImage('assets/images/dinamica/opacity-dinamica.png'),
+            opacity: 0.15,
+          ),
+        ),
         child: Wrap(
           spacing: 20.0 * 2.5,
           runSpacing: 20.0 * 1.5,
@@ -69,6 +72,8 @@ class _MessageFormState extends State<MessageForm> {
               data:
                   Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
               child: TextFormField(
+                keyboardType: TextInputType.name,
+                textCapitalization: TextCapitalization.words,
                 controller: _nombreController,
                 focusNode: focusNombre,
                 onEditingComplete: () {
@@ -76,13 +81,13 @@ class _MessageFormState extends State<MessageForm> {
                 },
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Debes ingresar tu nombre";
+                    return "Debes ingresar tu nombre y apellido.";
                   }
                   return null;
                 },
                 onChanged: (value) {},
                 decoration: const InputDecoration(
-                  labelText: "Nombre",
+                  labelText: "Nombre y apellido",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -91,7 +96,9 @@ class _MessageFormState extends State<MessageForm> {
               data:
                   Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
               child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
+                textCapitalization: TextCapitalization.none,
                 focusNode: focusEmail,
                 onEditingComplete: () {
                   FocusScope.of(context).requestFocus(focusTelefono);
@@ -99,7 +106,7 @@ class _MessageFormState extends State<MessageForm> {
                 onChanged: (value) {},
                 validator: (value) {
                   return value != null && !EmailValidator.validate(value)
-                      ? 'Debes ingresar un e-mail válido\n Ejemplo. xxxxx@yyyy.zzz'
+                      ? 'Debes ingresar un e-mail válido.\n Ejemplo. xxxxx@yyyy.zzz'
                       : null;
                 },
                 decoration: const InputDecoration(
@@ -113,15 +120,16 @@ class _MessageFormState extends State<MessageForm> {
                   Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
               child: TextFormField(
                 controller: _telefonoController,
+                keyboardType: TextInputType.number,
                 focusNode: focusTelefono,
                 onEditingComplete: () {
                   FocusScope.of(context).requestFocus(focusDescripcion);
                 },
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Debes ingresar un número de teléfono";
+                    return "Debes ingresar tu número de teléfono.";
                   } else if (!isNumeric(value)) {
-                    return "Debes ingresar un número de teléfono válido";
+                    return "Debes ingresar un número de teléfono válido.";
                   }
                   return null;
                 },
@@ -137,6 +145,7 @@ class _MessageFormState extends State<MessageForm> {
                   Theme.of(context).copyWith(colorScheme: textFieldColorScheme),
               child: TextFormField(
                 maxLines: 5,
+                keyboardType: TextInputType.text,
                 controller: _descripcionController,
                 focusNode: focusDescripcion,
                 onEditingComplete: () {
@@ -145,7 +154,7 @@ class _MessageFormState extends State<MessageForm> {
                 onChanged: (value) {},
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Debes ingresar tu mensaje";
+                    return "Debes ingresar tu mensaje.";
                   }
                   return null;
                 },
@@ -160,10 +169,11 @@ class _MessageFormState extends State<MessageForm> {
               child: TextButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
+                    String transmitterName = _nombreController.text.trim();
                     http.Response response = await sendEmail(
                         name: _nombreController.text.trim(),
                         email: _emailController.text.trim(),
-                        subject: "Consulta - pay-dinámica",
+                        subject: "Consulta desde pay.dinámica",
                         message: "      Email: ${_emailController.text.trim()}."
                             "     Teléfono: ${_telefonoController.text.trim()}."
                             "     Mensaje: ${_descripcionController.text.trim()}");
@@ -174,17 +184,28 @@ class _MessageFormState extends State<MessageForm> {
                             return AlertDialog(
                               title: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('CONTACTO',
-                                      style: TextStyle(
-                                          color: primary,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                  Divider()
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: Image.asset(
+                                            'assets/images/dinamica/icon.png',
+                                            height: 25),
+                                      ),
+                                      const Text('CONTACTO',
+                                          style: TextStyle(
+                                              color: primary,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                  const Divider()
                                 ],
                               ),
-                              content: const Text(
-                                  'Su mensaje fue enviado exitosamente, recibirá una respuesta a la brevedad. Gracias por comunicarte con nosotros, equipo de DINÁMICA.'),
+                              content: Text(
+                                  '$transmitterName su mensaje fue enviado exitosamente, recibirá una respuesta a la brevedad.\nGracias por comunicarte con nosotros, equipo de DINÁMICA.'),
                               actions: <Widget>[
                                 ElevatedButton(
                                     onPressed: () {
@@ -219,15 +240,26 @@ class _MessageFormState extends State<MessageForm> {
                             return AlertDialog(
                               title: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    'ERROR',
-                                    style: TextStyle(
-                                        color: primary,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: Image.asset(
+                                            'assets/images/dinamica/icon.png',
+                                            height: 25),
+                                      ),
+                                      const Text(
+                                        'ERROR',
+                                        style: TextStyle(
+                                            color: primary,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
                                   ),
-                                  Divider()
+                                  const Divider()
                                 ],
                               ),
                               content: const Text(
@@ -271,15 +303,25 @@ class _MessageFormState extends State<MessageForm> {
                           return AlertDialog(
                             title: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'ERROR',
-                                  style: TextStyle(
-                                      color: primary,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                              children: [
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 10),
+                                      child: Image.asset(
+                                          'assets/images/dinamica/icon.png',
+                                          height: 25),
+                                    ),
+                                    const Text(
+                                      'ERROR',
+                                      style: TextStyle(
+                                          color: primary,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
                                 ),
-                                Divider()
+                                const Divider()
                               ],
                             ),
                             content: const Text(

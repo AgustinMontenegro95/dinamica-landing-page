@@ -40,22 +40,6 @@ class Message extends StatelessWidget {
                       letterSpacing: 2,
                     )),
               ),
-              /* Padding(
-                padding: const EdgeInsets.only(bottom: 25),
-                child: Text(
-                  "Rellená el formulario de contacto y en breve nos contactaremos contigo.",
-                  style: TextStyle(
-                    color: Colors.grey.shade700,
-                    fontSize: ResponsiveWrapper.of(context)
-                            .isSmallerThan("MOBILE_LARGE")
-                        ? 18
-                        : ResponsiveWrapper.of(context).isSmallerThan(TABLET)
-                            ? 13
-                            : 18,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ), */
               const MessageForm(),
             ],
           ),

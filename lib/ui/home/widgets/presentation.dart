@@ -205,8 +205,8 @@ class _PresentationState extends State<Presentation> {
                             ? const EdgeInsets.only(top: 0)
                             : ResponsiveWrapper.of(context)
                                     .isSmallerThan("DESKTOP_LARGE")
-                                ? const EdgeInsets.only(top: 110)
-                                : const EdgeInsets.only(top: 70),
+                                ? const EdgeInsets.only(top: 70)
+                                : const EdgeInsets.only(top: 45),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: AspectRatio(

@@ -49,7 +49,9 @@ String actualizacionesPoliticasSeguridadCuerpoPP =
 
 String informacionContactoTituloPP = "Información de contacto";
 
-String informacionContactoCuerpoPP =
-    "En caso de que Usted quisiera ponerse en contacto con nosotros a fin de actualizar sus datos o ejercer los derechos que le corresponden, o tuviera alguna consulta con relación al alcance de esta política y/o alguna inquietud respecto de la privacidad y/o seguridad de la información brindada a DINÁMICA, podrá comunicarla directamente a través de la dirección de correo electrónico info@midinamica.com.ar.";
+String aInformacionContactoCuerpoPP =
+    "En caso de que Usted quisiera ponerse en contacto con nosotros a fin de actualizar sus datos o ejercer los derechos que le corresponden, o tuviera alguna consulta con relación al alcance de esta política y/o alguna inquietud respecto de la privacidad y/o seguridad de la información brindada a DINÁMICA, podrá comunicarla directamente a través de la dirección de correo electrónico ";
+
+String bInformacionContactoCuerpoPP = "info@midinamica.com.ar";
 
 String ultimaActualizacionPP = "Última actualización: 23 de marzo de 2021.";

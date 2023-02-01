@@ -47,14 +47,17 @@ class _HelpCenterState extends State<HelpCenter> {
               ),
             ),
             FadeInRight(
-              child: const Text(
-                "Encontrá las respuestas a todas tus consultas",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: primary,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  "Encontrá las respuestas a todas tus consultas",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: primary,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
                 ),
               ),
             ),

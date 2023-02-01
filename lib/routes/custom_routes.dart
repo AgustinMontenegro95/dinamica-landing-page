@@ -1,5 +1,5 @@
 import 'package:dinamica_landing_page/ui/conditions_grating_loans/conditions_grating_loans_page.dart';
-import 'package:dinamica_landing_page/ui/help/terms_and_conditions/terms_and_conditions_page.dart';
+import 'package:dinamica_landing_page/ui/terms_and_conditions/terms_and_conditions_page.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/terms_policies_page.dart';
 import 'package:dinamica_landing_page/ui/privacy_policies/privacy_policies_page.dart';
 import 'package:flutter/material.dart';
