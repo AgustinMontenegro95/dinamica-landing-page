@@ -1,8 +1,9 @@
-import 'package:dinamica_landing_page/constants/colors.dart';
-import 'package:dinamica_landing_page/ui/terms_and_conditions/widgets/constant_data.dart';
-import 'package:dinamica_landing_page/ui/terms_and_conditions/widgets/link_text_rich_tac.dart';
-import 'package:dinamica_landing_page/ui/terms_and_conditions/widgets/text_rich_tac.dart';
+import 'package:dinamica_landing_page/constants/components.dart';
+import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions/widgets/constant_data.dart';
+import 'package:dinamica_landing_page/ui/widgets/bold_text_rich.dart';
 import 'package:dinamica_landing_page/ui/widgets/footer.dart';
+import 'package:dinamica_landing_page/ui/widgets/link_route_text_rich.dart';
+import 'package:dinamica_landing_page/ui/widgets/return_button.dart';
 import 'package:flutter/material.dart';
 
 class BodyTermsAndConditions extends StatelessWidget {
@@ -10,12 +11,6 @@ class BodyTermsAndConditions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle bodyTCTextStyle = const TextStyle(fontSize: 18);
-    TextStyle titleTCTextStyle = const TextStyle(
-        fontSize: 22, fontWeight: FontWeight.bold, color: primary);
-
-    SizedBox spaceColumn = const SizedBox(height: 50);
-    SizedBox spaceTitleBody = const SizedBox(height: 15);
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -26,292 +21,300 @@ class BodyTermsAndConditions extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 100),
+                  const ReturnButton(),
                   Center(
                       child: Text(tituloTC,
-                          style: titleTCTextStyle.copyWith(
+                          style: titleTACTextStyle.copyWith(
                             decoration: TextDecoration.underline,
                             fontSize: 25,
                           ),
                           textAlign: TextAlign.center)),
                   spaceTitleBody,
                   Text(cuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceColumn,
                   // 1- Registro de cuentas
-                  Text(registroCuentaTituloTC, style: titleTCTextStyle),
+                  Text(registroCuentaTituloTC, style: titleTACTextStyle),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: aRegistroCuentaTituloCuerpoTC,
                       normalFont: aRegistroCuentaCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: bRegistroCuentaTituloCuerpoTC,
                       normalFont: bRegistroCuentaCuerpoTC),
                   spaceColumn,
                   // 2- Procesamiento de pagos. Mandato
                   Text(procesamientoPagoMandatoTituloTC,
-                      style: titleTCTextStyle),
+                      style: titleTACTextStyle),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: aProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: aProcesamientoPagoMandatoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: bProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: bProcesamientoPagoMandatoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: cProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: cProcesamientoPagoMandatoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: dProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: dProcesamientoPagoMandatoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: eProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: eProcesamientoPagoMandatoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: fProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: fProcesamientoPagoMandatoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: gProcesamientoPagoMandatoTituloCuerpoTC,
                       normalFont: gProcesamientoPagoMandatoCuerpoTC),
                   spaceColumn,
                   // 3- Entrega, aplicación y retiro de los fondos
                   Text(entregaAplicacionYRetiroDeLosFondosTituloTC,
-                      style: titleTCTextStyle),
+                      style: titleTACTextStyle),
                   spaceTitleBody,
                   Text(entregaFondosUsuarioTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(entregaFondosUsuarioCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(liquidacionAcreditacionFondosTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(liquidacionAcreditacionFondosCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(instruccionesRespectoFondosTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(instruccionesRespectoFondosCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(retirosTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(retirosCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(limitesTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(limitesCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(resolucionReclamosTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(resolucionReclamosCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(reversionesTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(reversionesCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(responsabilidadFondosTituloTC,
-                      style:
-                          bodyTCTextStyle.copyWith(fontWeight: FontWeight.bold),
+                      style: bodyTACTextStyle.copyWith(
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.justify),
                   spaceTitleBody,
                   Text(responsabilidadFondosCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceColumn,
                   // 4- Carrito de compras y Botón de pago
                   Text(carritoComprasBotonPagoTituloTC,
-                      style: titleTCTextStyle),
+                      style: titleTACTextStyle),
                   spaceTitleBody,
                   Text(carritoComprasBotonPagoCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: aCarritoComprasBotonPagoTituloCuerpoTC,
                       normalFont: aCarritoComprasBotonPagoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: bCarritoComprasBotonPagoTituloCuerpoTC,
                       normalFont: bCarritoComprasBotonPagoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: cCarritoComprasBotonPagoTituloCuerpoTC,
                       normalFont: cCarritoComprasBotonPagoCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: dCarritoComprasBotonPagoTituloCuerpoTC,
                       normalFont: dCarritoComprasBotonPagoCuerpoTC),
                   Text(dCarritoComprasBotonPagoCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceColumn,
                   // 5- Política de correcto uso de marcas en el sitio Web del Vendedor
                   Text(politicaCorrectoUsoMarcaTituloTC,
-                      style: titleTCTextStyle),
+                      style: titleTACTextStyle),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: aPoliticaCorrectoUsoMarcaTituloCuerpoTC,
                       normalFont: aPoliticaCorrectoUsoMarcaCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: bPoliticaCorrectoUsoMarcaTituloCuerpoTC,
                       normalFont: bPoliticaCorrectoUsoMarcaCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: cPoliticaCorrectoUsoMarcaTituloCuerpoTC,
                       normalFont: cPoliticaCorrectoUsoMarcaCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: dPoliticaCorrectoUsoMarcaTituloCuerpoTC,
                       normalFont: dPoliticaCorrectoUsoMarcaCuerpoTC),
                   Text(dPoliticaCorrectoUsoMarcaCuerpoTC,
-                      style: bodyTCTextStyle, textAlign: TextAlign.justify),
+                      style: bodyTACTextStyle, textAlign: TextAlign.justify),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: ePoliticaCorrectoUsoMarcaTituloCuerpoTC,
                       normalFont: ePoliticaCorrectoUsoMarcaCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: fPoliticaCorrectoUsoMarcaTituloCuerpoTC,
                       normalFont: fPoliticaCorrectoUsoMarcaCuerpoTC),
                   spaceColumn,
                   // 6- Condiciones generales de contratación
                   Text(condicionesContratacionTituloTC,
-                      style: titleTCTextStyle),
+                      style: titleTACTextStyle),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: aCondicionesContratacionTituloCuerpoTC,
                       normalFont: aCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: bCondicionesContratacionTituloCuerpoTC,
                       normalFont: bCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: cCondicionesContratacionTituloCuerpoTC,
                       normalFont: cCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: dCondicionesContratacionTituloCuerpoTC,
                       normalFont: dCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: eCondicionesContratacionTituloCuerpoTC,
                       normalFont: eCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: fCondicionesContratacionTituloCuerpoTC,
                       normalFont: fCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: gCondicionesContratacionTituloCuerpoTC,
                       normalFont: gCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: hCondicionesContratacionTituloCuerpoTC,
                       normalFont: hCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: iCondicionesContratacionTituloCuerpoTC,
                       normalFont: iCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: jCondicionesContratacionTituloCuerpoTC,
                       normalFont: jCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: kCondicionesContratacionTituloCuerpoTC,
                       normalFont: kCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: lCondicionesContratacionTituloCuerpoTC,
                       normalFont: lCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: mCondicionesContratacionTituloCuerpoTC,
                       normalFont: mCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: nCondicionesContratacionTituloCuerpoTC,
                       normalFont: nCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: oCondicionesContratacionTituloCuerpoTC,
                       normalFont: oCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: pCondicionesContratacionTituloCuerpoTC,
                       normalFont: pCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: qCondicionesContratacionTituloCuerpoTC,
                       normalFont: qCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
                   //Hipervinculos
-                  const LinkTextRichTAC(
-                      title: "Política de Privacidad de DINÁMICA",
+                  const LinkRouteTextRich(
+                      leftText: "             • ",
+                      link: "Política de Privacidad de DINÁMICA",
                       route: "/politicas-de-privacidad"),
                   spaceTitleBody,
-                  const LinkTextRichTAC(
-                      title: "Comisiones y Cargos del Servicio",
+                  const LinkRouteTextRich(
+                      leftText: "             • ",
+                      link: "Comisiones y Cargos del Servicio",
                       route: "/politicas-de-privacidad"),
                   spaceTitleBody,
-                  const LinkTextRichTAC(
-                      title: "Términos y Condiciones de Inversiones",
+                  const LinkRouteTextRich(
+                      leftText: "             • ",
+                      link: "Términos y Condiciones de Inversiones",
                       route: "/politicas-de-privacidad"),
                   spaceTitleBody,
-                  const LinkTextRichTAC(
-                      title: "Términos y Condiciones de DINÁMICA Cobros",
-                      route: "/politicas-de-privacidad"),
+                  const LinkRouteTextRich(
+                      leftText: "             • ",
+                      link: "Términos y Condiciones de DINÁMICA Cobros",
+                      route:
+                          "/terminos-y-condiciones-de-uso-de-dinamica-cobros"),
                   spaceTitleBody,
-                  const LinkTextRichTAC(
-                      title: "Términos y Condiciones de Uso Código QR",
-                      route: "/politicas-de-privacidad"),
+                  const LinkRouteTextRich(
+                      leftText: "             • ",
+                      link: "Términos y Condiciones de Uso Código QR",
+                      route: "/terminos-y-condiciones-de-uso-de-codigo-qr"),
                   spaceTitleBody,
-                  const LinkTextRichTAC(
-                      title:
+                  const LinkRouteTextRich(
+                      leftText: "             • ",
+                      link:
                           "Términos y Condiciones del Programa de  Descuentos y Bonificaciones",
                       route: "/politicas-de-privacidad"),
                   spaceTitleBody,
                   //
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: rCondicionesContratacionTituloCuerpoTC,
                       normalFont: rCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
-                  TextRichTAC(
+                  BoldTextRich(
                       boldFont: sCondicionesContratacionTituloCuerpoTC,
                       normalFont: sCondicionesContratacionCuerpoTC),
                   spaceColumn,
                   // Ultima actualización
-                  Text(ultimaActualizacionTC, style: bodyTCTextStyle),
+                  Text(ultimaActualizacionTC, style: bodyTACTextStyle),
                   spaceColumn,
                 ],
               ),

@@ -20,7 +20,7 @@ class BodyTermsPolicies extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    SizedBox(height: 100),
+                    SizedBox(height: 70),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20.0),
                       child: Text(
@@ -39,10 +39,21 @@ class BodyTermsPolicies extends StatelessWidget {
                         title:
                             "DINÁMICA Crédito - Condiciones Generales del otorgamiento de Préstamos",
                         route: "/condiciones-de-otorgamiento-de-prestamos"),
+                    ListtileBodyTP(
+                        title: "Términos y Condiciones de DINÁMICA Cobros",
+                        route:
+                            "/terminos-y-condiciones-de-uso-de-dinamica-cobros"),
+                    ListtileBodyTP(
+                        title: "Términos y Condiciones de Adelanto de Fondos",
+                        route:
+                            "/terminos-y-condiciones-de-uso-de-adelanto-de-fondos"),
+                    ListtileBodyTP(
+                        title: "Términos y Condiciones de Uso de Código QR",
+                        route: "/terminos-y-condiciones-de-uso-de-codigo-qr"),
                   ],
                 ),
               ),
-              const Footer(),
+              const Footer(termsAndConditions: false),
             ],
           ),
         ),

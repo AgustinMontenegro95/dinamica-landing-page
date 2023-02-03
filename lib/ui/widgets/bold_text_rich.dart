@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextRichTAC extends StatelessWidget {
-  const TextRichTAC({
+class BoldTextRich extends StatelessWidget {
+  const BoldTextRich({
     Key? key,
     required this.boldFont,
     required this.normalFont,

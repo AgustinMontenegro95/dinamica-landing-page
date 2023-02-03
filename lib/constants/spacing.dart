@@ -25,3 +25,7 @@ EdgeInsets blockPadding(BuildContext context) => ResponsiveValue(context,
         ]).value!;
 
 const EdgeInsets blockMargin = EdgeInsets.fromLTRB(10, 25, 10, 32);
+
+//space - Terms and Conditions
+SizedBox spaceColumn = const SizedBox(height: 50);
+SizedBox spaceTitleBody = const SizedBox(height: 15);

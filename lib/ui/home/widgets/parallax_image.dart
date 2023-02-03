@@ -23,7 +23,7 @@ class ParallaxWidget extends StatelessWidget {
             : sizeRes.scaledHeight,
         width: sizeRes.scaledWidth,
         child: sizeRes.isSmallerThan(MOBILE)
-            ? Image.asset("assets/images/parallax/parallax-mobile2.png",
+            ? Image.asset("assets/images/parallax/parallax-mobile.png",
                 fit: BoxFit.cover)
             : sizeRes.isSmallerThan("MOBILE_LARGE")
                 ? Image.asset(

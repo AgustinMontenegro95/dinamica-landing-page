@@ -28,3 +28,8 @@ const TextStyle animationtextStyle = TextStyle(
     Shadow(offset: Offset(5.0, 5.0), blurRadius: 5.0, color: Colors.black),
   ],
 );
+
+//terms and conditions
+TextStyle bodyTACTextStyle = const TextStyle(fontSize: 18);
+TextStyle titleTACTextStyle =
+    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold);

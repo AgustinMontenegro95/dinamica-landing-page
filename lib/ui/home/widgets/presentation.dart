@@ -1,4 +1,5 @@
 import 'package:dinamica_landing_page/constants/components.dart';
+import 'package:dinamica_landing_page/ui/home/widgets/available_buton.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -101,68 +102,26 @@ class _PresentationState extends State<Presentation> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
-                            ? 20
-                            : 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MouseRegion(
-                          cursor: SystemMouseCursors.click,
-                          child: GestureDetector(
-                            onTap: () {
-                              launchUrlString(
-                                  "https://play.google.com/store/apps/details?id=com.dinamica.wallet");
-                            },
-                            child: Image(
-                              image: const AssetImage(
-                                'assets/images/available-buttons/google-play-red.png',
-                              ),
-                              width: ResponsiveWrapper.of(context)
-                                      .isSmallerThan(MOBILE)
-                                  ? 175
-                                  : ResponsiveWrapper.of(context)
-                                          .isSmallerThan("MOBILE_LARGE")
-                                      ? 189
-                                      : ResponsiveWrapper.of(context)
-                                              .isSmallerThan(TABLET)
-                                          ? 250
-                                          : ResponsiveWrapper.of(context)
-                                                  .isSmallerThan(
-                                                      "DESKTOP_LARGE")
-                                              ? 200
-                                              : 300,
-                            ),
+                  Center(
+                    child: Column(
+                      children: const [
+                        Tooltip(
+                          message: "Ver en Google Play",
+                          child: AvailableButton(
+                            store: "Google Play",
+                            image: "google-play",
+                            link:
+                                "https://play.google.com/store/apps/details?id=com.dinamica.wallet",
                           ),
                         ),
-                        const SizedBox(height: 20),
-                        MouseRegion(
-                          cursor: SystemMouseCursors.click,
-                          child: GestureDetector(
-                            onTap: () {
-                              launchUrlString(
-                                  "https://apps.apple.com/us/app/dinamica/id1632974131");
-                            },
-                            child: Image(
-                              image: const AssetImage(
-                                  'assets/images/available-buttons/app-store-red.png'),
-                              width: ResponsiveWrapper.of(context)
-                                      .isSmallerThan(MOBILE)
-                                  ? 175
-                                  : ResponsiveWrapper.of(context)
-                                          .isSmallerThan("MOBILE_LARGE")
-                                      ? 189
-                                      : ResponsiveWrapper.of(context)
-                                              .isSmallerThan(TABLET)
-                                          ? 250
-                                          : ResponsiveWrapper.of(context)
-                                                  .isSmallerThan(
-                                                      "DESKTOP_LARGE")
-                                              ? 200
-                                              : 300,
-                            ),
+                        SizedBox(height: 10),
+                        Tooltip(
+                          message: "Ver en App Store",
+                          child: AvailableButton(
+                            store: "App Store   ",
+                            image: "app-store",
+                            link:
+                                "https://apps.apple.com/us/app/dinamica/id1632974131",
                           ),
                         ),
                       ],

@@ -5,7 +5,9 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  const Footer({Key? key, this.termsAndConditions = true}) : super(key: key);
+
+  final bool termsAndConditions;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +61,12 @@ class Footer extends StatelessWidget {
                       const TextSpan(text: "  •  "),
                       TextSpan(
                           recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.pushNamed(
-                                  context, '/terminos-y-politicas');
-                            },
+                            ..onTap = termsAndConditions
+                                ? () {
+                                    Navigator.pushNamed(
+                                        context, '/terminos-y-politicas');
+                                  }
+                                : null,
                           text: "Términos y políticas"),
                       const TextSpan(text: "  •  "),
                       TextSpan(

@@ -1,11 +1,11 @@
 import 'package:dinamica_landing_page/constants/components.dart';
-import 'package:dinamica_landing_page/ui/conditions_grating_loans/widgets/body_conditions_grating_loans.dart';
+import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_use_qr_code/widgets/body_terms_and_conditions_use_qr_code.dart';
 import 'package:dinamica_landing_page/ui/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class ConditionsGratingLoansPage extends StatelessWidget {
-  const ConditionsGratingLoansPage({super.key});
+class TermsAndConditionsUseQrCodePage extends StatelessWidget {
+  const TermsAndConditionsUseQrCodePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +125,7 @@ class ConditionsGratingLoansPage extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.white,
-      body: const BodyConditionsGratingLoans(),
+      body: const BodyTermsAndConditionsUseQrCode(),
     );
   }
 }
