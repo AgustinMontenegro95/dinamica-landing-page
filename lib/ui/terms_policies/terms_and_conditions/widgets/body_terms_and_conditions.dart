@@ -2,7 +2,7 @@ import 'package:dinamica_landing_page/constants/components.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions/widgets/constant_data.dart';
 import 'package:dinamica_landing_page/ui/widgets/bold_text_rich.dart';
 import 'package:dinamica_landing_page/ui/widgets/footer.dart';
-import 'package:dinamica_landing_page/ui/widgets/link_route_text_rich.dart';
+import 'package:dinamica_landing_page/ui/widgets/link_url_text_rich.dart';
 import 'package:dinamica_landing_page/ui/widgets/return_button.dart';
 import 'package:flutter/material.dart';
 
@@ -272,37 +272,36 @@ class BodyTermsAndConditions extends StatelessWidget {
                       normalFont: qCondicionesContratacionCuerpoTC),
                   spaceTitleBody,
                   //Hipervinculos
-                  const LinkRouteTextRich(
+                  const LinkUrlTextRich(
                       leftText: "             • ",
-                      link: "Política de Privacidad de DINÁMICA",
-                      route: "/politicas-de-privacidad"),
+                      name: "Política de Privacidad de DINÁMICA",
+                      url:
+                          "https://pay.dinamicaonline.com.ar/politicas-de-privacidad"),
                   spaceTitleBody,
-                  const LinkRouteTextRich(
+                  const LinkUrlTextRich(
                       leftText: "             • ",
-                      link: "Comisiones y Cargos del Servicio",
-                      route: "/politicas-de-privacidad"),
+                      name:
+                          "DINÁMICA Crédito – Condiciones Generales del Otorgamiento de Préstamos",
+                      url:
+                          "https://pay.dinamicaonline.com.ar/condiciones-de-otorgamiento-de-prestamos"),
                   spaceTitleBody,
-                  const LinkRouteTextRich(
+                  const LinkUrlTextRich(
                       leftText: "             • ",
-                      link: "Términos y Condiciones de Inversiones",
-                      route: "/politicas-de-privacidad"),
+                      name: "Términos y Condiciones de DINÁMICA Cobros",
+                      url:
+                          "https://pay.dinamicaonline.com.ar/terminos-y-condiciones-de-uso-de-dinamica-cobros"),
                   spaceTitleBody,
-                  const LinkRouteTextRich(
+                  const LinkUrlTextRich(
                       leftText: "             • ",
-                      link: "Términos y Condiciones de DINÁMICA Cobros",
-                      route:
-                          "/terminos-y-condiciones-de-uso-de-dinamica-cobros"),
+                      name: "Términos y Condiciones de Adelanto de Fondos",
+                      url:
+                          "https://pay.dinamicaonline.com.ar/terminos-y-condiciones-de-uso-de-adelanto-de-fondos"),
                   spaceTitleBody,
-                  const LinkRouteTextRich(
+                  const LinkUrlTextRich(
                       leftText: "             • ",
-                      link: "Términos y Condiciones de Uso Código QR",
-                      route: "/terminos-y-condiciones-de-uso-de-codigo-qr"),
-                  spaceTitleBody,
-                  const LinkRouteTextRich(
-                      leftText: "             • ",
-                      link:
-                          "Términos y Condiciones del Programa de  Descuentos y Bonificaciones",
-                      route: "/politicas-de-privacidad"),
+                      name: "Términos y Condiciones de Uso Código QR",
+                      url:
+                          "https://pay.dinamicaonline.com.ar/terminos-y-condiciones-de-uso-de-codigo-qr"),
                   spaceTitleBody,
                   //
                   BoldTextRich(
