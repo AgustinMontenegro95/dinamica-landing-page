@@ -84,7 +84,9 @@ class TermsAndConditionsUseQrCodePage extends StatelessWidget {
                   splashFactory: NoSplash.splashFactory,
                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/ayuda');
+                },
                 child: Text(
                   'Ayuda',
                   style: headlineTextStyle.copyWith(
