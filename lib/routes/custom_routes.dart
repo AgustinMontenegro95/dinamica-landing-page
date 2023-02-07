@@ -1,3 +1,4 @@
+import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_discounts_and_bonuses_program/terms_and_conditions_discounts_and_bonuses_program_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/conditions_grating_loans/conditions_grating_loans_page.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/privacy_policies/privacy_policies_page.dart';
@@ -25,4 +26,6 @@ var customRoutes = <String, WidgetBuilder>{
       const TermsAndConditionsFundsAdvancesPage(),
   '/terminos-y-condiciones-de-uso-de-codigo-qr': (context) =>
       const TermsAndConditionsUseQrCodePage(),
+  '/terminos-y-condiciones-del-programa-de-descuentos-y-bonificaciones':
+      (context) => const TermsAndConditionsDiscountsAndBonusesProgramPage(),
 };
