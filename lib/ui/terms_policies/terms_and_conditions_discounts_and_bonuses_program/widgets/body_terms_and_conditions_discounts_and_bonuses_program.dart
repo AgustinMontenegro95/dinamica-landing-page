@@ -1,5 +1,4 @@
 import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_discounts_and_bonuses_program/widgets/constant_data.dart';
-import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_funds_advances/widgets/constant_data.dart';
 import 'package:dinamica_landing_page/ui/widgets/footer.dart';
 import 'package:dinamica_landing_page/ui/widgets/return_button.dart';
 import 'package:flutter/material.dart';
