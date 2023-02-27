@@ -59,9 +59,10 @@ class _AppBarCustomState extends State<AppBarCustom> {
       scrolledUnderElevation: 0.0,
       backgroundColor: isScrolledToTop
           ? Colors.transparent
-          : transitionColor < 1
+          : /* transitionColor < 1
               ? primary.withOpacity(transitionColor)
-              : primary,
+              :  */
+          primary,
       elevation: isScrolledToTop ? 0 : 10,
       centerTitle: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
           ? true
@@ -83,22 +84,30 @@ class _AppBarCustomState extends State<AppBarCustom> {
               : transitionColor < 1
                   ? false
                   : true,
-          child: TextButton(
-              style: ButtonStyle(
-                splashFactory: NoSplash.splashFactory,
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
-              ),
-              onPressed: () {
-                setState(() {
-                  widget.scrollController.scrollToItem(0, animate: true);
-                });
-              },
-              child: Text(
-                'Inicio',
-                style: headlineTextStyle.copyWith(
-                    fontSize: fontSize, color: Colors.white),
-                textAlign: TextAlign.center,
-              )),
+          child: Container(
+            decoration: const BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(color: Colors.white, width: 5.0))),
+            child: TextButton(
+                style: ButtonStyle(
+                  splashFactory: NoSplash.splashFactory,
+                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                ),
+                onPressed: () {
+                  setState(() {
+                    widget.scrollController.scrollToItem(0, animate: true);
+                  });
+                },
+                child: Text(
+                  'Inicio',
+                  style: headlineTextStyle.copyWith(
+                    fontSize: fontSize,
+                    letterSpacing: 0.5,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                )),
+          ),
         ),
         Visibility(
           visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")

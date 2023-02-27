@@ -86,25 +86,25 @@ class _HelpPageState extends State<HelpPage> {
             visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
                 ? false
                 : true,
-            child: TextButton(
-                style: ButtonStyle(
-                  splashFactory: NoSplash.splashFactory,
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
-                ),
-                onPressed: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Colors.grey, width: 2.0))),
+            child: Container(
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.white, width: 5.0))),
+              child: TextButton(
+                  style: ButtonStyle(
+                    splashFactory: NoSplash.splashFactory,
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  ),
+                  onPressed: () {},
                   child: Text(
                     'Ayuda',
                     style: headlineTextStyle.copyWith(
-                        fontWeight: FontWeight.bold,
                         fontSize: fontSize,
-                        color: Colors.grey),
+                        letterSpacing: 0.5,
+                        color: Colors.white),
                     textAlign: TextAlign.center,
-                  ),
-                )),
+                  )),
+            ),
           ),
           Visibility(
             visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")

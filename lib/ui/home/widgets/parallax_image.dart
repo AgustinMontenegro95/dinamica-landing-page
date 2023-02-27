@@ -16,31 +16,26 @@ class ParallaxWidget extends StatelessWidget {
     final sizeRes = ResponsiveWrapper.of(context);
 
     return Positioned(
-      top: top,
+      top: 0,
       child: SizedBox(
-        height: !sizeRes.isLargerThan(MOBILE)
-            ? sizeRes.scaledHeight * 0.50
-            : sizeRes.scaledHeight,
+        height: sizeRes.scaledHeight,
         width: sizeRes.scaledWidth,
         child: sizeRes.isSmallerThan(MOBILE)
-            ? Image.asset("assets/images/parallax/parallax-mobile.png",
+            ? Image.asset("assets/images/parallax/parallax-mobile.jpg",
                 fit: BoxFit.cover)
             : sizeRes.isSmallerThan("MOBILE_LARGE")
-                ? Image.asset(
-                    "assets/images/parallax/parallax-mobile-large.png",
+                ? Image.asset("assets/images/parallax/parallax-mobile.jpg",
                     fit: BoxFit.cover)
                 : sizeRes.isSmallerThan(TABLET)
-                    ? Image.asset("assets/images/parallax/parallax-mobile.png",
+                    ? Image.asset("assets/images/parallax/parallax.jpg",
                         fit: BoxFit.cover)
                     : sizeRes.isSmallerThan(DESKTOP)
-                        ? Image.asset(
-                            "assets/images/parallax/parallax-desktop.png",
+                        ? Image.asset("assets/images/parallax/parallax.jpg",
                             fit: BoxFit.cover)
                         : sizeRes.isSmallerThan("DESKTOP_LARGE")
-                            ? Image.asset(
-                                "assets/images/parallax/parallax-desktop-large.png",
+                            ? Image.asset("assets/images/parallax/parallax.jpg",
                                 fit: BoxFit.cover)
-                            : Image.asset("assets/images/parallax/$asset.png",
+                            : Image.asset("assets/images/parallax/parallax.jpg",
                                 fit: BoxFit.cover),
       ),
     );

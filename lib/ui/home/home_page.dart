@@ -4,6 +4,7 @@ import 'package:dinamica_landing_page/ui/widgets/footer.dart';
 import 'package:dinamica_landing_page/ui/home/widgets/presentation.dart';
 import 'package:dinamica_landing_page/ui/home/widgets/app_bar.dart';
 import 'package:dinamica_landing_page/ui/home/widgets/parallax_image.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scroll_pos/scroll_pos.dart';
@@ -22,6 +23,7 @@ class HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    FlutterNativeSplash.remove();
     scrollController = ScrollPosController(itemCount: itemCount);
     super.initState();
   }
@@ -38,9 +40,7 @@ class HomePageState extends State<HomePage> {
 
     List<Widget> listWidgets = [
       Container(
-        height: !sizeRes.isLargerThan(MOBILE)
-            ? sizeRes.scaledHeight * 0.40
-            : sizeRes.scaledHeight * 0.94,
+        height: sizeRes.scaledHeight * 0.94,
         color: Colors.transparent,
       ),
       const Presentation(),

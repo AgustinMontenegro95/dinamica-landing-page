@@ -5,9 +5,11 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key, this.termsAndConditions = true}) : super(key: key);
+  const Footer({Key? key, this.termsAndConditions = true, this.costs = true})
+      : super(key: key);
 
   final bool termsAndConditions;
+  final bool costs;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,15 @@ class Footer extends StatelessWidget {
                               launchUrlString("http://www.midinamica.com.ar/");
                             },
                           text: "Sitio web"),
+                      const TextSpan(text: "  •  "),
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = costs
+                                ? () {
+                                    Navigator.pushNamed(context, '/costos');
+                                  }
+                                : null,
+                          text: "Costos"),
                       const TextSpan(text: "  •  "),
                       TextSpan(
                           recognizer: TapGestureRecognizer()

@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:dinamica_landing_page/constants/components.dart';
 import 'package:dinamica_landing_page/ui/contact/widgets/contact.dart';
 import 'package:dinamica_landing_page/ui/contact/widgets/message.dart';
 import 'package:dinamica_landing_page/ui/widgets/my_drawer.dart';
 import 'package:dinamica_landing_page/ui/widgets/footer.dart';
-import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ContactPage extends StatefulWidget {
@@ -67,25 +67,25 @@ class _ContactPageState extends State<ContactPage> {
             visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")
                 ? false
                 : true,
-            child: TextButton(
-                style: ButtonStyle(
-                  splashFactory: NoSplash.splashFactory,
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
-                ),
-                onPressed: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Colors.grey, width: 2.0))),
+            child: Container(
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.white, width: 5.0))),
+              child: TextButton(
+                  style: ButtonStyle(
+                    splashFactory: NoSplash.splashFactory,
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  ),
+                  onPressed: () {},
                   child: Text(
                     'Contacto',
                     style: headlineTextStyle.copyWith(
-                        fontWeight: FontWeight.bold,
                         fontSize: fontSize,
-                        color: Colors.grey),
+                        letterSpacing: 0.5,
+                        color: Colors.white),
                     textAlign: TextAlign.center,
-                  ),
-                )),
+                  )),
+            ),
           ),
           Visibility(
             visible: ResponsiveWrapper.of(context).isSmallerThan("MOBILE_LARGE")

@@ -13,23 +13,55 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Responsive
   responsive_framework: ^0.2.0
+  
+  # Open link
   url_launcher: ^6.0.20
-  video_player: ^2.2.18
-  url_strategy: ^0.2.0
-  scroll_pos: ^0.3.0
-  flutter_native_splash: ^2.2.16
+  
+  # Design
   flutter_custom_clippers: ^2.1.0
-  animate_do: ^3.0.2
-  email_validator: ^2.0.1
+  
+  # Splash screen
+  flutter_native_splash: ^2.2.16
+  
+  # Request
   http: ^0.13.4
+  
+  # Delete "#"
+  url_strategy: ^0.2.0
+  
+  # Animations
+  animate_do: ^3.0.2
+  scroll_pos: ^0.3.0
+
+  # Validations
+  email_validator: ^2.0.1
   string_validator: ^0.3.0
+
+  # State Management
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+
+  # Freezed
+  freezed_annotation: ^2.2.0
+  json_serializable: ^6.6.0
+  json_annotation: ^4.8.0
+
+  # Table
+  responsive_table: ^0.2.0+2
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+
+  # Freezed
+  freezed: ^2.3.2
+  build_runner: ^2.3.3
 
 flutter_native_splash:
   color: "#ffffff"
@@ -41,7 +73,6 @@ flutter:
 
   assets:
     - assets/
-    - assets/videos/
     - assets/images/
     - assets/images/parallax/
     - assets/images/dinamica/

@@ -1,5 +1,10 @@
-import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_discounts_and_bonuses_program/terms_and_conditions_discounts_and_bonuses_program_page.dart';
 import 'package:flutter/material.dart';
+import 'package:dinamica_landing_page/ui/costs/cash_withdrawal/cash_withdrawal_page.dart';
+import 'package:dinamica_landing_page/ui/costs/costs_page.dart';
+import 'package:dinamica_landing_page/ui/costs/deposit_money/deposit_money_page.dart';
+import 'package:dinamica_landing_page/ui/costs/transfer_money/transfer_money_page.dart';
+import 'package:dinamica_landing_page/ui/help/help_page.dart';
+import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_discounts_and_bonuses_program/terms_and_conditions_discounts_and_bonuses_program_page.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/conditions_grating_loans/conditions_grating_loans_page.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/privacy_policies/privacy_policies_page.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions/terms_and_conditions_page.dart';
@@ -8,7 +13,6 @@ import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_pay
 import 'package:dinamica_landing_page/ui/terms_policies/terms_and_conditions_use_qr_code/terms_and_conditions_use_qr_code_page.dart';
 import 'package:dinamica_landing_page/ui/terms_policies/terms_policies_page.dart';
 import 'package:dinamica_landing_page/ui/contact/contact_page.dart';
-import 'package:dinamica_landing_page/ui/help/help_page.dart';
 import 'package:dinamica_landing_page/ui/home/home_page.dart';
 
 var customRoutes = <String, WidgetBuilder>{
@@ -28,4 +32,8 @@ var customRoutes = <String, WidgetBuilder>{
       const TermsAndConditionsUseQrCodePage(),
   '/terminos-y-condiciones-del-programa-de-descuentos-y-bonificaciones':
       (context) => const TermsAndConditionsDiscountsAndBonusesProgramPage(),
+  '/costos': (context) => const CostsPage(),
+  '/ingresar-dinero': (context) => const DepositMoneyPage(),
+  '/retiro-efectivo': (context) => const CashWithdrawalPage(),
+  '/transferir-dinero': (context) => const TransferMoneyPage(),
 };

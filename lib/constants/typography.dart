@@ -6,7 +6,11 @@ const String fontFamily = "Google Sans";
 
 // Simple
 const TextStyle headlineTextStyle = TextStyle(
-    fontSize: 44, color: textPrimary, height: 1.2, fontFamily: fontFamily);
+    fontSize: 44,
+    color: textPrimary,
+    height: 1.2,
+    fontFamily: fontFamily,
+    letterSpacing: 0.5);
 
 const TextStyle headlineSecondaryTextStyle = TextStyle(
     fontSize: 28, color: textPrimary, height: 1.2, fontFamily: fontFamily);
